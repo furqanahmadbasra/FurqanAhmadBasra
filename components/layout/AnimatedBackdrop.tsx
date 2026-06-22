@@ -1,0 +1,82 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
+export function AnimatedBackdrop() {
+  return (
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none" style={{ backgroundColor: 'var(--bg, #f6f7f9)' }} aria-hidden>
+      
+      {/* Premium Noise Texture */}
+      <div 
+        className="absolute inset-0 z-10 opacity-[0.03]" 
+        style={{ 
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' 
+        }}
+      />
+      
+      {/* Soft Ambient Orbs for Depth */}
+      <motion.div
+        animate={{
+          x: [0, 80, -40, 0],
+          y: [0, -80, 40, 0],
+          scale: [1, 1.1, 0.95, 1],
+        }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-blue-500/10 blur-[120px]"
+      />
+      
+      <motion.div
+        animate={{
+          x: [0, -100, 60, 0],
+          y: [0, 100, -60, 0],
+          scale: [1, 1.2, 0.8, 1],
+        }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-[-20%] right-[-10%] w-[70%] h-[70%] rounded-full bg-teal-500/10 blur-[140px]"
+      />
+      
+      <motion.div
+        animate={{
+          x: [0, 60, -60, 0],
+          y: [0, 120, -80, 0],
+          scale: [1, 1.15, 0.9, 1],
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[30%] right-[10%] w-[40%] h-[40%] rounded-full bg-amber-500/5 blur-[100px]"
+      />
+
+      {/* Floating Sparkles / Particles */}
+      {Array.from({ length: 15 }).map((_, i) => (
+        <motion.div
+          key={i}
+          animate={{
+            y: [0, -100 - Math.random() * 200],
+            x: [0, (Math.random() - 0.5) * 100],
+            opacity: [0, 0.5, 0],
+            scale: [0, Math.random() * 1.5 + 0.5, 0]
+          }}
+          transition={{
+            duration: Math.random() * 10 + 15,
+            repeat: Infinity,
+            delay: Math.random() * 20,
+            ease: "easeInOut"
+          }}
+          className="absolute w-1 h-1 bg-white rounded-full shadow-[0_0_8px_2px_rgba(255,255,255,0.4)]"
+          style={{
+            bottom: '-5%',
+            left: `${Math.random() * 100}%`,
+          }}
+        />
+      ))}
+
+      {/* Very Subtle Architectural Grid */}
+      <div 
+        className="absolute inset-0 bg-[linear-gradient(rgba(139,152,168,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(139,152,168,0.06)_1px,transparent_1px)] bg-[size:64px_64px]"
+        style={{
+          maskImage: 'radial-gradient(ellipse 90% 90% at 50% 30%, black 20%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 30%, black 20%, transparent 80%)'
+        }}
+      />
+    </div>
+  );
+}

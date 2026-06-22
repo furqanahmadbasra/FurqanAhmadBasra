@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, ExternalLink, Mail, MapPin, Phone } from 'lucide-react';
 import { SiteNav } from '@/components/layout/SiteNav';
+import { LanyardCard } from '@/components/ui/LanyardCard';
 import { featuredProjects, projects } from '@/data/projects';
 import { skillModules } from '@/data/skills';
 import { experience } from '@/data/experience';
@@ -53,22 +54,33 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="profile-panel" aria-label="Portfolio summary">
-          <div>
-            <p className="panel-label">Focus</p>
-            <div className="focus-list">
-              {coreSkills.map((skill) => <span key={skill}>{skill}</span>)}
-            </div>
-          </div>
-          <div className="panel-divider" />
-          <div>
-            <p className="panel-label">Currently</p>
-            <p className="panel-text">
-              BS Computer Science student with hands-on work in AI/ML, backend systems,
-              frontend interfaces, and software reliability.
-            </p>
-          </div>
-        </aside>
+        <div className="w-full h-full min-h-[500px] flex items-start justify-center pt-8">
+          <LanyardCard 
+            imageSrc="/your-picture.jpg" 
+            backContent={
+              <>
+                <div>
+                  <p className="panel-label font-mono text-xs uppercase tracking-wider text-blue-600 mb-4">Focus</p>
+                  <div className="flex flex-wrap gap-2">
+                    {coreSkills.map((skill) => (
+                      <span key={skill} className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-medium border border-slate-200">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="w-full h-[1px] bg-slate-200 my-6" />
+                <div>
+                  <p className="panel-label font-mono text-xs uppercase tracking-wider text-blue-600 mb-3">Currently</p>
+                  <p className="panel-text text-sm text-slate-600 leading-relaxed">
+                    BS Computer Science student with hands-on work in AI/ML, backend systems,
+                    frontend interfaces, and software reliability.
+                  </p>
+                </div>
+              </>
+            }
+          />
+        </div>
       </section>
 
       <section className="stats-section section-container" aria-label="Portfolio highlights">
