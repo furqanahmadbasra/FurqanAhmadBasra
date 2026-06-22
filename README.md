@@ -1,82 +1,87 @@
-# 👋 Hi, I'm Furqan Ahmad Basra
+# Furqan Ahmad Basra
 
-🚀 Computer Science Student at NUST (BSCS)  
-🧠 Full-Stack Developer | AI/ML Engineer | Systems Builder  
-⚙️ I build scalable systems, intelligent applications, and real-time platforms
-
----
-
-## 🧑‍💻 About Me
-
-- 🎓 BS Computer Science @ NUST (CGPA: 3.16)
-- 💻 Passionate about AI, backend systems, and distributed applications
-- 🧠 Interested in LLMs, RAG systems, search engines, and intelligent automation
-- ⚡ I enjoy building complex systems from scratch (not just using libraries)
-- 🌍 Languages: English | Urdu | Japanese
+Computer Science Student at NUST  
+Full-Stack Developer | AI / ML Engineer | Systems Builder
 
 ---
 
-## 🛠️ Tech Stack
+## Overview
 
-**Languages:**  
-C, C++, Java, Python, JavaScript, TypeScript  
+I am a Computer Science student focused on building full-stack applications, AI systems, and scalable backend architectures.  
+I enjoy working on systems that combine software engineering with machine learning and real-time data processing.
 
-**Frontend:**  
-React, Next.js, React Native, Flutter, HTML, CSS, Tailwind  
-
-**Backend:**  
-Node.js, Express.js, Spring Boot, REST APIs, WebSockets, GraphQL  
-
-**AI / ML:**  
-PyTorch, Scikit-learn, NLP, LLMs, RAG, Sentence Transformers  
-
-**Databases:**  
-PostgreSQL, MySQL, MongoDB, Redis, Pinecone, ChromaDB  
-
-**Other:**  
-Docker, Git/GitHub, CI/CD, Linux, System Design, DSA
+My main interest areas include:
+- Artificial intelligence systems (LLMs, RAG, NLP)
+- Backend and distributed systems
+- Search engines and information retrieval
+- Real-time applications and automation tools
 
 ---
 
-## 🚀 Projects
+## Education
 
-### 🔍 Search Engine (C++ | React)
-- Built from scratch with custom indexing (no STL in core engine)
-- TF-IDF ranking, inverted index, phrase + wildcard search
-- Sub-50ms query performance over 50K+ documents
-
-### 🤖 Clutch.ai (AI Interview Copilot)
-- Real-time speech-to-intent AI assistant
-- Whisper ASR + RAG pipeline + ChromaDB
-- Low-latency overlay system for live assistance
-
-### 📊 Flowra (Agentic Agile Platform)
-- AI-driven sprint & team analytics system
-- GitHub + Jira + Discord integration
-- Proof-of-work verification for real productivity tracking
-
-### 🏠 DreamHome (Real-time Collaboration)
-- CRDT-based collaborative interior design system
-- WebSocket sync with Redis + PostgreSQL backend
+National University of Sciences and Technology (NUST), Islamabad  
+BS Computer Science (2023 – Present)  
+CGPA: 3.18 / 4.00
 
 ---
 
-## 📈 Interests
+## Technical Skills
 
-- Large Language Models & RAG systems  
-- Distributed systems & scalable architectures  
-- Search engines & ranking algorithms  
-- AI automation tools  
-- Real-time collaborative apps  
+Programming Languages:
+C, C++, Java, Python, JavaScript, TypeScript
+
+Frontend:
+React, Next.js, Flutter, HTML, CSS, Tailwind CSS
+
+Backend:
+Node.js, Express.js, Spring Boot, REST APIs, WebSockets, GraphQL
+
+Machine Learning / AI:
+PyTorch, Scikit-learn, NLP, LLMs, Retrieval-Augmented Generation (RAG), Sentence Transformers
+
+Databases:
+PostgreSQL, MySQL, MongoDB, Redis, Pinecone, ChromaDB
+
+Tools & Systems:
+Git, Docker, CI/CD basics, Linux, system design, data structures and algorithms
 
 ---
 
-## 📫 Contact
+## Selected Projects
 
-- Email: furqanacc5785@gmail.com  
-- LinkedIn: linkedin.com/in/furqan-ahmad-basra-1812b62a2  
-- GitHub: github.com/furqanahmadbasra  
+Search Engine (C++)
+Built a search engine from scratch with custom indexing structures.
+Implemented inverted index, TF-IDF ranking, phrase search, and wildcard queries.
+Designed for fast retrieval over large document collections.
+
+Clutch.ai – Interview Assistant System
+Real-time AI assistant using speech recognition and retrieval-augmented generation.
+Integrated Whisper for transcription and vector database for semantic search.
+Designed low-latency response pipeline for live interaction.
+
+Flowra – Agile Intelligence Platform
+AI-powered system for tracking software team productivity and workflows.
+Integrated GitHub, Jira, and communication tools for analytics and verification of real development activity.
+
+DreamHome – Real-time Collaboration System
+Collaborative interior design platform using WebSockets and CRDT-based synchronization.
+Enabled multiple users to edit shared layouts in real time with conflict-free updates.
 
 ---
 
-💡 *“I like building systems that feel impossible until they exist.”*
+## Interests
+
+Artificial intelligence systems and LLM applications  
+Distributed systems and scalable backend design  
+Search engines and ranking algorithms  
+Real-time collaborative software  
+Automation and intelligent workflows  
+
+---
+
+## Contact
+
+Email: furqanacc5785@gmail.com  
+LinkedIn: linkedin.com/in/furqan-ahmad-basra-1812b62a2  
+GitHub: github.com/furqanahmadbasra
