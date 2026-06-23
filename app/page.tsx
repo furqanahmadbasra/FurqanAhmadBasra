@@ -2,6 +2,13 @@ import Link from 'next/link';
 import { ArrowRight, ExternalLink, Mail, MapPin, Phone } from 'lucide-react';
 import { SiteNav } from '@/components/layout/SiteNav';
 import { LanyardCard } from '@/components/ui/LanyardCard';
+import { BlurText } from '@/components/interactive/BlurText';
+import { FadeContent } from '@/components/interactive/FadeContent';
+import { CountUp } from '@/components/interactive/CountUp';
+import { ReflectiveCard } from '@/components/interactive/ReflectiveCard';
+import { TiltedCard } from '@/components/interactive/TiltedCard';
+import { ShinyText } from '@/components/interactive/ShinyText';
+import { AuroraBackground } from '@/components/interactive/AuroraBackground';
 import { featuredProjects, projects } from '@/data/projects';
 import { skillModules } from '@/data/skills';
 import { experience } from '@/data/experience';
@@ -28,30 +35,39 @@ const additionalProjects = projects.filter((project) => !project.featured).slice
 
 export default function Home() {
   return (
-    <main className="site-shell">
+    <main className="site-shell relative min-h-screen">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="sticky top-0 w-full h-screen">
+          <AuroraBackground />
+        </div>
+      </div>
       <SiteNav />
 
       <section id="top" className="hero-section section-container">
         <div className="hero-copy">
-          <p className="eyebrow">Computer Science student at NUST</p>
-          <h1>Furqan Ahmad Basra</h1>
-          <p className="hero-lede">
-            I build practical AI, full-stack, and systems projects, from RAG document tools and
-            real-time collaboration platforms to custom search engines, compilers, and ML analytics.
-          </p>
-          <div className="hero-actions" aria-label="Primary actions">
-            <Link className="button-primary" href="/projects">
-              View All Projects <ArrowRight size={17} aria-hidden />
-            </Link>
-            <a className="button-secondary" href="mailto:furqanacc5785@gmail.com">
-              <Mail size={17} aria-hidden /> Contact Me
-            </a>
-          </div>
-          <div className="contact-strip" aria-label="Contact details">
-            <span><MapPin size={15} aria-hidden /> Islamabad, Pakistan</span>
-            <a href="mailto:furqanacc5785@gmail.com"><Mail size={15} aria-hidden /> Email</a>
-            <a href="tel:+923346525807"><Phone size={15} aria-hidden /> +92 334 6525807</a>
-          </div>
+          <FadeContent yOffset={10}>
+            <p className="eyebrow">Computer Science student at NUST</p>
+          </FadeContent>
+          <BlurText text="Furqan Ahmad Basra" delay={0.2} />
+          <FadeContent delay={0.5}>
+            <p className="hero-lede">
+              I build practical AI, full-stack, and systems projects, from RAG document tools and
+              real-time collaboration platforms to custom search engines, compilers, and ML analytics.
+            </p>
+            <div className="hero-actions" aria-label="Primary actions">
+              <Link className="button-primary" href="/projects">
+                View All Projects <ArrowRight size={17} aria-hidden />
+              </Link>
+              <a className="button-secondary" href="mailto:furqanacc5785@gmail.com">
+                <Mail size={17} aria-hidden /> Contact Me
+              </a>
+            </div>
+            <div className="contact-strip" aria-label="Contact details">
+              <span><MapPin size={15} aria-hidden /> Islamabad, Pakistan</span>
+              <a href="mailto:furqanacc5785@gmail.com"><Mail size={15} aria-hidden /> Email</a>
+              <a href="tel:+923346525807"><Phone size={15} aria-hidden /> +92 334 6525807</a>
+            </div>
+          </FadeContent>
         </div>
 
         <div className="w-full h-full min-h-[500px] flex items-start justify-center pt-8">
@@ -86,7 +102,17 @@ export default function Home() {
       <section className="stats-section section-container" aria-label="Portfolio highlights">
         {stats.map((stat) => (
           <article key={stat.label} className="stat-card">
-            <strong>{stat.value}</strong>
+            <strong>
+              {stat.value.includes('K+') ? (
+                <CountUp to={parseFloat(stat.value)} suffix="K+" />
+              ) : stat.value.includes('+') ? (
+                <CountUp to={parseFloat(stat.value)} suffix="+" />
+              ) : stat.value.includes('%') ? (
+                <CountUp to={parseFloat(stat.value)} suffix="%" />
+              ) : (
+                <CountUp to={parseFloat(stat.value)} />
+              )}
+            </strong>
             <span>{stat.label}</span>
           </article>
         ))}
@@ -104,7 +130,7 @@ export default function Home() {
 
         <div className="project-grid">
           {selectedProjects.map((project, index) => (
-            <article key={project.slug} className={index === 0 ? 'project-card project-card-featured' : 'project-card'}>
+            <ReflectiveCard key={project.slug} className={index === 0 ? 'project-card project-card-featured' : 'project-card'}>
               <div className="card-topline">
                 <span>{project.semester}</span>
                 <span>{project.category.replace('-', ' / ')}</span>
@@ -123,15 +149,17 @@ export default function Home() {
               <Link href={`/work/${project.slug}`} className="text-link">
                 Read case study <ArrowRight size={15} aria-hidden />
               </Link>
-            </article>
+            </ReflectiveCard>
           ))}
         </div>
 
         <div className="compact-projects" aria-label="Additional projects">
           {additionalProjects.map((project) => (
-            <Link key={project.slug} href={`/work/${project.slug}`} className="compact-project">
-              <span>{project.title}</span>
-              <small>{project.tagline}</small>
+            <Link key={project.slug} href={`/work/${project.slug}`}>
+              <ReflectiveCard className="compact-project">
+                <span>{project.title}</span>
+                <small>{project.tagline}</small>
+              </ReflectiveCard>
             </Link>
           ))}
         </div>
@@ -148,12 +176,12 @@ export default function Home() {
         </div>
         <div className="skills-grid">
           {skillModules.map((module) => (
-            <article key={module.id} className="skill-card-clean">
+            <TiltedCard key={module.id} className="skill-card-clean">
               <h3>{module.title.replaceAll('_', ' ').replace('&', ' & ')}</h3>
               <div className="tag-list">
                 {module.skills.map((skill) => <span key={skill}>{skill}</span>)}
               </div>
-            </article>
+            </TiltedCard>
           ))}
         </div>
       </section>
@@ -197,7 +225,7 @@ export default function Home() {
       <section id="contact" className="section-container contact-section">
         <div>
           <p className="eyebrow">Contact</p>
-          <h2>Let&apos;s build something useful.</h2>
+          <h2><ShinyText text="Let's build something useful." /></h2>
           <p>
             I&apos;m open to internships, junior software roles, AI/ML engineering work, frontend projects,
             and collaborations where thoughtful engineering matters.
