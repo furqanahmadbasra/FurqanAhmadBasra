@@ -9,6 +9,9 @@ import { ReflectiveCard } from '@/components/interactive/ReflectiveCard';
 import { TiltedCard } from '@/components/interactive/TiltedCard';
 import { ShinyText } from '@/components/interactive/ShinyText';
 import { AuroraBackground } from '@/components/interactive/AuroraBackground';
+import { Magnet } from '@/components/interactive/Magnet';
+import { ScrollReveal } from '@/components/interactive/ScrollReveal';
+import { AnimatedList } from '@/components/interactive/AnimatedList';
 import { featuredProjects, projects } from '@/data/projects';
 import { skillModules } from '@/data/skills';
 import { experience } from '@/data/experience';
@@ -55,12 +58,16 @@ export default function Home() {
               real-time collaboration platforms to custom search engines, compilers, and ML analytics.
             </p>
             <div className="hero-actions" aria-label="Primary actions">
-              <Link className="button-primary" href="/projects">
-                View All Projects <ArrowRight size={17} aria-hidden />
-              </Link>
-              <a className="button-secondary" href="mailto:furqanacc5785@gmail.com">
-                <Mail size={17} aria-hidden /> Contact Me
-              </a>
+              <Magnet className="inline-block" strength={0.15}>
+                <Link className="button-primary" href="/projects">
+                  View All Projects <ArrowRight size={17} aria-hidden />
+                </Link>
+              </Magnet>
+              <Magnet className="inline-block" strength={0.15}>
+                <a className="button-secondary" href="mailto:furqanacc5785@gmail.com">
+                  <Mail size={17} aria-hidden /> Contact Me
+                </a>
+              </Magnet>
             </div>
             <div className="contact-strip" aria-label="Contact details">
               <span><MapPin size={15} aria-hidden /> Islamabad, Pakistan</span>
@@ -120,12 +127,14 @@ export default function Home() {
 
       <section id="work" className="section-container content-section">
         <div className="section-heading">
-          <p className="eyebrow">Selected work</p>
-          <h2>Projects with real engineering depth</h2>
-          <p>
-            A focused set of projects showing AI pipelines, product thinking, data structures,
-            real-time systems, and reliable backend architecture.
-          </p>
+          <ScrollReveal><p className="eyebrow">Selected work</p></ScrollReveal>
+          <ScrollReveal delay={0.1}><h2>Projects with real engineering depth</h2></ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <p>
+              A focused set of projects showing AI pipelines, product thinking, data structures,
+              real-time systems, and reliable backend architecture.
+            </p>
+          </ScrollReveal>
         </div>
 
         <div className="project-grid">
@@ -167,12 +176,14 @@ export default function Home() {
 
       <section id="skills" className="section-container content-section split-section">
         <div className="section-heading sticky-heading">
-          <p className="eyebrow">Technical skills</p>
-          <h2>A balanced stack for AI products and software systems</h2>
-          <p>
-            Comfortable moving between model workflows, APIs, databases, frontend interfaces,
-            and lower-level systems work when the project needs it.
-          </p>
+          <ScrollReveal><p className="eyebrow">Technical skills</p></ScrollReveal>
+          <ScrollReveal delay={0.1}><h2>A balanced stack for AI products and software systems</h2></ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <p>
+              Comfortable moving between model workflows, APIs, databases, frontend interfaces,
+              and lower-level systems work when the project needs it.
+            </p>
+          </ScrollReveal>
         </div>
         <div className="skills-grid">
           {skillModules.map((module) => (
@@ -188,10 +199,10 @@ export default function Home() {
 
       <section id="experience" className="section-container content-section">
         <div className="section-heading">
-          <p className="eyebrow">Experience and education</p>
-          <h2>Learning by building across the stack</h2>
+          <ScrollReveal><p className="eyebrow">Experience and education</p></ScrollReveal>
+          <ScrollReveal delay={0.1}><h2>Learning by building across the stack</h2></ScrollReveal>
         </div>
-        <div className="timeline-clean">
+        <AnimatedList className="timeline-clean">
           {experience.map((entry) => (
             <article key={entry.id} className="timeline-item-clean">
               <div>
@@ -204,13 +215,13 @@ export default function Home() {
               </ul>
             </article>
           ))}
-        </div>
+        </AnimatedList>
       </section>
 
       <section className="section-container content-section credentials-section">
         <div className="section-heading">
-          <p className="eyebrow">Certifications</p>
-          <h2>Structured learning that supports the project work</h2>
+          <ScrollReveal><p className="eyebrow">Certifications</p></ScrollReveal>
+          <ScrollReveal delay={0.1}><h2>Structured learning that supports the project work</h2></ScrollReveal>
         </div>
         <div className="credentials-grid">
           {certifications.map((cert) => (
@@ -232,10 +243,18 @@ export default function Home() {
           </p>
         </div>
         <div className="contact-card">
-          <a href="mailto:furqanacc5785@gmail.com"><Mail size={18} aria-hidden /> furqanacc5785@gmail.com</a>
-          <a href="tel:+923346525807"><Phone size={18} aria-hidden /> +92 334 6525807</a>
-          <a href="https://github.com/furqanahmadbasra" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> GitHub</a>
-          <a href="https://www.linkedin.com/in/furqan-ahmad-basra-1812b62a2/" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> LinkedIn</a>
+          <Magnet strength={0.15}>
+            <a href="mailto:furqanacc5785@gmail.com"><Mail size={18} aria-hidden /> furqanacc5785@gmail.com</a>
+          </Magnet>
+          <Magnet strength={0.15}>
+            <a href="tel:+923346525807"><Phone size={18} aria-hidden /> +92 334 6525807</a>
+          </Magnet>
+          <Magnet strength={0.15}>
+            <a href="https://github.com/furqanahmadbasra" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> GitHub</a>
+          </Magnet>
+          <Magnet strength={0.15}>
+            <a href="https://www.linkedin.com/in/furqan-ahmad-basra-1812b62a2/" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> LinkedIn</a>
+          </Magnet>
         </div>
       </section>
     </main>
