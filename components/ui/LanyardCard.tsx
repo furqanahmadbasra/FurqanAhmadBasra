@@ -27,22 +27,7 @@ export function LanyardCard({
   return (
     <div className="relative w-full h-[500px] flex flex-col items-center group perspective-1000">
       
-      {/* The Lanyard "Thread" or "String" */}
-      <motion.div 
-        className="absolute top-[-50px] w-1 bg-slate-800 shadow-sm z-0 rounded-full"
-        style={{
-          height: '100px', // Base string length
-          // Stretch the string slightly as you drag down
-          scaleY: useTransform(y, [0, 100], [1, 1.2]),
-          originY: 0, // Stretch from the top
-        }}
-      />
-      
-      {/* The Lanyard "Clip" */}
-      <motion.div 
-        className="absolute top-[40px] w-4 h-6 bg-slate-300 rounded-sm border border-slate-400 z-10 shadow-sm"
-        style={{ x, y, rotateZ, originY: -1.5 }}
-      />
+
 
       {/* The Actual Card (Draggable and Flippable) */}
       <motion.div

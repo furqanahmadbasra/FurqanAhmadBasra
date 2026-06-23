@@ -42,12 +42,13 @@ export function SiteNav({ items = defaultItems }: SiteNavProps) {
           backdropFilter: backdropBlur,
           WebkitBackdropFilter: backdropBlur,
         }}
-        className="flex items-center justify-between gap-8 px-4 py-3 border border-slate-200/50 rounded-full max-w-[800px] w-full"
+        className="flex items-center justify-between gap-8 px-4 py-3 border-transparent rounded-full max-w-[800px] w-full"
       >
         <Link 
           href="/" 
-          className="flex items-center justify-center w-10 h-10 bg-slate-900 text-white font-bold rounded-full text-sm hover:scale-105 transition-transform" 
+          className="flex items-center justify-center w-10 h-10 bg-black text-white font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-md" 
           aria-label="Furqan Ahmad Basra home"
+          style={{ color: 'white' }}
         >
           FAB
         </Link>
