@@ -68,15 +68,6 @@ export function AnimatedBackdrop() {
           }}
         />
       ))}
-
-      {/* Very Subtle Architectural Grid */}
-      <div 
-        className="absolute inset-0 bg-[linear-gradient(rgba(139,152,168,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(139,152,168,0.06)_1px,transparent_1px)] bg-[size:64px_64px]"
-        style={{
-          maskImage: 'radial-gradient(ellipse 90% 90% at 50% 30%, black 20%, transparent 80%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 30%, black 20%, transparent 80%)'
-        }}
-      />
     </div>
   );
 }

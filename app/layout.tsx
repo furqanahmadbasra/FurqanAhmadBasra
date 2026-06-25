@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { AnimatedBackdrop } from "@/components/layout/AnimatedBackdrop";
+import { CustomCursor } from "@/components/interactive/CustomCursor";
+import { ClickSpark } from "@/components/interactive/ClickSpark";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -35,6 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <AnimatedBackdrop />
+        <CustomCursor />
+        <ClickSpark />
         {children}
       </body>
     </html>

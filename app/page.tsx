@@ -8,10 +8,13 @@ import { CountUp } from '@/components/interactive/CountUp';
 import { ReflectiveCard } from '@/components/interactive/ReflectiveCard';
 import { TiltedCard } from '@/components/interactive/TiltedCard';
 import { ShinyText } from '@/components/interactive/ShinyText';
-import { AuroraBackground } from '@/components/interactive/AuroraBackground';
+import { SoftAurora } from '@/components/interactive/SoftAurora';
 import { Magnet } from '@/components/interactive/Magnet';
 import { ScrollReveal } from '@/components/interactive/ScrollReveal';
 import { AnimatedList } from '@/components/interactive/AnimatedList';
+import { RotatingText } from '@/components/interactive/RotatingText';
+import { ScrollVelocity } from '@/components/interactive/ScrollVelocity';
+import { FloatingLines } from '@/components/interactive/FloatingLines';
 import { featuredProjects, projects } from '@/data/projects';
 import { skillModules } from '@/data/skills';
 import { experience } from '@/data/experience';
@@ -41,7 +44,7 @@ export default function Home() {
     <main className="site-shell relative min-h-screen">
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="sticky top-0 w-full h-screen">
-          <AuroraBackground />
+          <SoftAurora />
         </div>
       </div>
       <SiteNav />
@@ -53,9 +56,10 @@ export default function Home() {
           </FadeContent>
           <BlurText text="Furqan Ahmad Basra" delay={0.2} />
           <FadeContent delay={0.5}>
-            <p className="hero-lede">
-              I build practical AI, full-stack, and systems projects, from RAG document tools and
-              real-time collaboration platforms to custom search engines, compilers, and ML analytics.
+            <p className="hero-lede flex flex-wrap items-center gap-x-2">
+              <span>I build</span>
+              <RotatingText texts={['practical AI systems', 'full-stack platforms', 'custom compilers', 'search engines']} />
+              <span>from RAG document tools to ML analytics.</span>
             </p>
             <div className="hero-actions" aria-label="Primary actions">
               <Magnet className="inline-block" strength={0.15}>
@@ -125,138 +129,151 @@ export default function Home() {
         ))}
       </section>
 
-      <section id="work" className="section-container content-section">
-        <div className="section-heading">
-          <ScrollReveal><p className="eyebrow">Selected work</p></ScrollReveal>
-          <ScrollReveal delay={0.1}><h2>Projects with real engineering depth</h2></ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <p>
-              A focused set of projects showing AI pipelines, product thinking, data structures,
-              real-time systems, and reliable backend architecture.
-            </p>
-          </ScrollReveal>
-        </div>
+      <ScrollVelocity text="FURQAN AHMAD BASRA / AI & FULL-STACK DEVELOPER / NUST STUDENT /" className="my-16" />
 
-        <div className="project-grid">
-          {selectedProjects.map((project, index) => (
-            <ReflectiveCard key={project.slug} className={index === 0 ? 'project-card project-card-featured' : 'project-card'}>
-              <div className="card-topline">
-                <span>{project.semester}</span>
-                <span>{project.category.replace('-', ' / ')}</span>
-              </div>
-              <h3>{project.title}</h3>
-              <p className="project-tagline">{project.tagline}</p>
-              <p>{project.description}</p>
-              <ul>
-                {project.highlights.slice(0, index === 0 ? 3 : 2).map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
-              <div className="tag-list">
-                {project.tech.slice(0, 6).map((tech) => <span key={tech}>{tech}</span>)}
-              </div>
-              <Link href={`/work/${project.slug}`} className="text-link">
-                Read case study <ArrowRight size={15} aria-hidden />
-              </Link>
-            </ReflectiveCard>
-          ))}
-        </div>
+      <div className="section-wrapper shade-white py-12">
+        <section id="work" className="section-container content-section">
+          <div className="section-heading">
+            <ScrollReveal><p className="eyebrow">Selected work</p></ScrollReveal>
+            <ScrollReveal delay={0.1}><h2>Projects with real engineering depth</h2></ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <p>
+                A focused set of projects showing AI pipelines, product thinking, data structures,
+                real-time systems, and reliable backend architecture.
+              </p>
+            </ScrollReveal>
+          </div>
 
-        <div className="compact-projects" aria-label="Additional projects">
-          {additionalProjects.map((project) => (
-            <Link key={project.slug} href={`/work/${project.slug}`}>
-              <ReflectiveCard className="compact-project">
-                <span>{project.title}</span>
-                <small>{project.tagline}</small>
+          <div className="project-grid">
+            {selectedProjects.map((project, index) => (
+              <ReflectiveCard key={project.slug} className={index === 0 ? 'project-card project-card-featured' : 'project-card'}>
+                <div className="card-topline">
+                  <span>{project.semester}</span>
+                  <span>{project.category.replace('-', ' / ')}</span>
+                </div>
+                <h3>{project.title}</h3>
+                <p className="project-tagline">{project.tagline}</p>
+                <p>{project.description}</p>
+                <ul>
+                  {project.highlights.slice(0, index === 0 ? 3 : 2).map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+                <div className="tag-list">
+                  {project.tech.slice(0, 6).map((tech) => <span key={tech}>{tech}</span>)}
+                </div>
+                <Link href={`/work/${project.slug}`} className="text-link">
+                  Read case study <ArrowRight size={15} aria-hidden />
+                </Link>
               </ReflectiveCard>
-            </Link>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
 
-      <section id="skills" className="section-container content-section split-section">
-        <div className="section-heading sticky-heading">
-          <ScrollReveal><p className="eyebrow">Technical skills</p></ScrollReveal>
-          <ScrollReveal delay={0.1}><h2>A balanced stack for AI products and software systems</h2></ScrollReveal>
-          <ScrollReveal delay={0.2}>
+          <div className="compact-projects" aria-label="Additional projects">
+            {additionalProjects.map((project) => (
+              <Link key={project.slug} href={`/work/${project.slug}`}>
+                <ReflectiveCard className="compact-project">
+                  <span>{project.title}</span>
+                  <small>{project.tagline}</small>
+                </ReflectiveCard>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <div className="section-wrapper shade-light-blue py-12">
+        <section id="skills" className="section-container content-section split-section relative min-h-[500px]">
+          <div className="section-heading sticky-heading relative z-10">
+            <ScrollReveal><p className="eyebrow">Technical skills</p></ScrollReveal>
+            <ScrollReveal delay={0.1}><h2>A balanced stack for AI products and software systems</h2></ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <p>
+                Comfortable moving between model workflows, APIs, databases, frontend interfaces,
+                and lower-level systems work when the project needs it.
+              </p>
+            </ScrollReveal>
+          </div>
+          <div className="skills-grid relative z-10">
+            {skillModules.map((module) => (
+              <TiltedCard key={module.id} className="skill-card-clean">
+                <h3>{module.title.replaceAll('_', ' ').replace('&', ' & ')}</h3>
+                <div className="tag-list">
+                  {module.skills.map((skill) => <span key={skill}>{skill}</span>)}
+                </div>
+              </TiltedCard>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <div className="section-wrapper shade-slate py-12">
+        <section id="experience" className="section-container content-section">
+          <div className="section-heading">
+            <ScrollReveal><p className="eyebrow">Experience and education</p></ScrollReveal>
+            <ScrollReveal delay={0.1}><h2>Learning by building across the stack</h2></ScrollReveal>
+          </div>
+          <AnimatedList className="timeline-clean">
+            {experience.map((entry) => (
+              <article key={entry.id} className="timeline-item-clean">
+                <div>
+                  <span>{entry.timestamp}</span>
+                  <h3>{entry.title}</h3>
+                  <p>{entry.organization}</p>
+                </div>
+                <ul>
+                  {entry.details.map((detail) => <li key={detail}>{detail}</li>)}
+                </ul>
+              </article>
+            ))}
+          </AnimatedList>
+        </section>
+      </div>
+
+      <div className="section-wrapper shade-white py-12">
+        <section className="section-container content-section credentials-section">
+          <div className="section-heading">
+            <ScrollReveal><p className="eyebrow">Certifications</p></ScrollReveal>
+            <ScrollReveal delay={0.1}><h2>Structured learning that supports the project work</h2></ScrollReveal>
+          </div>
+          <div className="credentials-grid">
+            {certifications.map((cert) => (
+              <article key={cert.title} className="credential-card">
+                <h3>{cert.title}</h3>
+                <p>{cert.issuer} - {cert.platform}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <div className="section-wrapper shade-light-blue py-12">
+        <section id="contact" className="section-container contact-section relative">
+          <FloatingLines />
+          <div className="relative z-10">
+            <p className="eyebrow">Contact</p>
+            <h2><ShinyText text="Let's build something useful." /></h2>
             <p>
-              Comfortable moving between model workflows, APIs, databases, frontend interfaces,
-              and lower-level systems work when the project needs it.
+              I&apos;m open to internships, junior software roles, AI/ML engineering work, frontend projects,
+              and collaborations where thoughtful engineering matters.
             </p>
-          </ScrollReveal>
-        </div>
-        <div className="skills-grid">
-          {skillModules.map((module) => (
-            <TiltedCard key={module.id} className="skill-card-clean">
-              <h3>{module.title.replaceAll('_', ' ').replace('&', ' & ')}</h3>
-              <div className="tag-list">
-                {module.skills.map((skill) => <span key={skill}>{skill}</span>)}
-              </div>
-            </TiltedCard>
-          ))}
-        </div>
-      </section>
-
-      <section id="experience" className="section-container content-section">
-        <div className="section-heading">
-          <ScrollReveal><p className="eyebrow">Experience and education</p></ScrollReveal>
-          <ScrollReveal delay={0.1}><h2>Learning by building across the stack</h2></ScrollReveal>
-        </div>
-        <AnimatedList className="timeline-clean">
-          {experience.map((entry) => (
-            <article key={entry.id} className="timeline-item-clean">
-              <div>
-                <span>{entry.timestamp}</span>
-                <h3>{entry.title}</h3>
-                <p>{entry.organization}</p>
-              </div>
-              <ul>
-                {entry.details.map((detail) => <li key={detail}>{detail}</li>)}
-              </ul>
-            </article>
-          ))}
-        </AnimatedList>
-      </section>
-
-      <section className="section-container content-section credentials-section">
-        <div className="section-heading">
-          <ScrollReveal><p className="eyebrow">Certifications</p></ScrollReveal>
-          <ScrollReveal delay={0.1}><h2>Structured learning that supports the project work</h2></ScrollReveal>
-        </div>
-        <div className="credentials-grid">
-          {certifications.map((cert) => (
-            <article key={cert.title} className="credential-card">
-              <h3>{cert.title}</h3>
-              <p>{cert.issuer} - {cert.platform}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="section-container contact-section">
-        <div>
-          <p className="eyebrow">Contact</p>
-          <h2><ShinyText text="Let's build something useful." /></h2>
-          <p>
-            I&apos;m open to internships, junior software roles, AI/ML engineering work, frontend projects,
-            and collaborations where thoughtful engineering matters.
-          </p>
-        </div>
-        <div className="contact-card">
-          <Magnet strength={0.15}>
-            <a href="mailto:furqanacc5785@gmail.com"><Mail size={18} aria-hidden /> furqanacc5785@gmail.com</a>
-          </Magnet>
-          <Magnet strength={0.15}>
-            <a href="tel:+923346525807"><Phone size={18} aria-hidden /> +92 334 6525807</a>
-          </Magnet>
-          <Magnet strength={0.15}>
-            <a href="https://github.com/furqanahmadbasra" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> GitHub</a>
-          </Magnet>
-          <Magnet strength={0.15}>
-            <a href="https://www.linkedin.com/in/furqan-ahmad-basra-1812b62a2/" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> LinkedIn</a>
-          </Magnet>
-        </div>
-      </section>
+          </div>
+          <div className="contact-card relative z-10">
+            <Magnet strength={0.15}>
+              <a href="mailto:furqanacc5785@gmail.com"><Mail size={18} aria-hidden /> furqanacc5785@gmail.com</a>
+            </Magnet>
+            <Magnet strength={0.15}>
+              <a href="tel:+923346525807"><Phone size={18} aria-hidden /> +92 334 6525807</a>
+            </Magnet>
+            <Magnet strength={0.15}>
+              <a href="https://github.com/furqanahmadbasra" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> GitHub</a>
+            </Magnet>
+            <Magnet strength={0.15}>
+              <a href="https://www.linkedin.com/in/furqan-ahmad-basra-1812b62a2/" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> LinkedIn</a>
+            </Magnet>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

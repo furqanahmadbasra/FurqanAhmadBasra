@@ -1,86 +1,95 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
-export default function CustomCursor() {
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-  const coordX = useMotionValue(0);
-  const coordY = useMotionValue(0);
+export function CustomCursor() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const springConfig = { damping: 25, stiffness: 300 };
-  const smoothX = useSpring(cursorX, springConfig);
-  const smoothY = useSpring(cursorY, springConfig);
+  // Position of the mouse
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-  const coordRef = useRef<HTMLDivElement>(null);
+  // Spring physics for smooth delay
+  const springConfig = { damping: 40, stiffness: 350, mass: 0.5 };
+  const ringX = useSpring(mouseX, springConfig);
+  const ringY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // Don't show custom cursor on touch devices
-    if ('ontouchstart' in window) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
-      coordX.set(e.clientX);
-      coordY.set(e.clientY);
-
-      if (coordRef.current) {
-        coordRef.current.textContent = `X:${String(Math.round(e.clientX)).padStart(4, '0')} Y:${String(Math.round(e.clientY)).padStart(4, '0')}`;
-      }
+    const moveCursor = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+      if (!isVisible) setIsVisible(true);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    document.body.style.cursor = 'none';
+    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseEnter = () => setIsVisible(true);
+
+    window.addEventListener('mousemove', moveCursor);
+    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseenter', handleMouseEnter);
+
+    // Detect hovers on clickable elements
+    const addHover = () => setIsHovered(true);
+    const removeHover = () => setIsHovered(false);
+
+    const updateHoverListeners = () => {
+      const clickables = document.querySelectorAll('a, button, input, select, textarea, [role="button"], .filter-pill');
+      clickables.forEach((el) => {
+        el.addEventListener('mouseenter', addHover);
+        el.addEventListener('mouseleave', removeHover);
+      });
+    };
+
+    // Run initially and set up a mutation observer to handle dynamic elements
+    updateHoverListeners();
+    const observer = new MutationObserver(updateHoverListeners);
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      document.body.style.cursor = 'auto';
+      window.removeEventListener('mousemove', moveCursor);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mouseenter', handleMouseEnter);
+      observer.disconnect();
     };
-  }, [cursorX, cursorY, coordX, coordY]);
+  }, [mouseX, mouseY, isVisible]);
 
-  // Don't render on mobile
-  if (typeof window !== 'undefined' && 'ontouchstart' in window) {
-    return null;
-  }
+  if (!isVisible) return null;
 
   return (
-    <>
-      {/* Crosshair */}
+    <div className="fixed inset-0 pointer-events-none z-[9999] hidden md:block">
+      {/* Outer Spring Ring */}
       <motion.div
-        className="fixed top-0 left-0 z-[10000] pointer-events-none mix-blend-difference"
         style={{
-          x: smoothX,
-          y: smoothY,
+          x: ringX,
+          y: ringY,
           translateX: '-50%',
           translateY: '-50%',
         }}
-      >
-        {/* Horizontal line */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-[1px] bg-cyan" />
-        {/* Vertical line */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-5 bg-cyan" />
-        {/* Center dot */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-cyan" />
-      </motion.div>
-
-      {/* Coordinate readout */}
-      <motion.div
-        className="fixed top-0 left-0 z-[10000] pointer-events-none"
-        style={{
-          x: smoothX,
-          y: smoothY,
-          translateX: '12px',
-          translateY: '12px',
+        animate={{
+          width: isHovered ? 40 : 20,
+          height: isHovered ? 40 : 20,
+          borderColor: isHovered ? 'var(--accent, #2563eb)' : 'rgba(23, 32, 42, 0.3)',
+          backgroundColor: isHovered ? 'rgba(37, 99, 235, 0.05)' : 'rgba(255, 255, 255, 0)',
         }}
-      >
-        <div
-          ref={coordRef}
-          className="font-mono text-[9px] tracking-[0.15em] text-cyan/60"
-        >
-          X:0000 Y:0000
-        </div>
-      </motion.div>
-    </>
+        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+        className="absolute rounded-full border border-solid pointer-events-none"
+      />
+      {/* Inner Dot */}
+      <motion.div
+        style={{
+          x: mouseX,
+          y: mouseY,
+          translateX: '-50%',
+          translateY: '-50%',
+        }}
+        animate={{
+          scale: isHovered ? 1.5 : 1,
+          backgroundColor: isHovered ? 'var(--accent, #2563eb)' : 'var(--ink, #17202a)',
+        }}
+        className="absolute w-2 h-2 rounded-full pointer-events-none"
+      />
+    </div>
   );
 }
