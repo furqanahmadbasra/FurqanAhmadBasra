@@ -44,8 +44,10 @@ export function FloatingLines() {
     }));
 
     let animationId: number;
+    let isVisible = true;
 
     const animate = () => {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       lines.current.forEach((line) => {
@@ -74,10 +76,22 @@ export function FloatingLines() {
       animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          animate();
+        } else {
+          cancelAnimationFrame(animationId);
+        }
+      });
+    });
+    
+    intersectionObserver.observe(container);
 
     return () => {
       observer.disconnect();
+      intersectionObserver.disconnect();
       cancelAnimationFrame(animationId);
     };
   }, []);

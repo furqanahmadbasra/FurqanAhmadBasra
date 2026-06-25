@@ -26,32 +26,32 @@ export function CustomCursor() {
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && target.closest('a, button, input, select, textarea, [role="button"], .filter-pill, [onClick]')) {
+        setIsHovered(true);
+      }
+    };
+
+    const handleMouseOut = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && target.closest('a, button, input, select, textarea, [role="button"], .filter-pill, [onClick]')) {
+        setIsHovered(false);
+      }
+    };
+
     window.addEventListener('mousemove', moveCursor);
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
-
-    // Detect hovers on clickable elements
-    const addHover = () => setIsHovered(true);
-    const removeHover = () => setIsHovered(false);
-
-    const updateHoverListeners = () => {
-      const clickables = document.querySelectorAll('a, button, input, select, textarea, [role="button"], .filter-pill');
-      clickables.forEach((el) => {
-        el.addEventListener('mouseenter', addHover);
-        el.addEventListener('mouseleave', removeHover);
-      });
-    };
-
-    // Run initially and set up a mutation observer to handle dynamic elements
-    updateHoverListeners();
-    const observer = new MutationObserver(updateHoverListeners);
-    observer.observe(document.body, { childList: true, subtree: true });
+    document.addEventListener('mouseover', handleMouseOver);
+    document.addEventListener('mouseout', handleMouseOut);
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
-      observer.disconnect();
+      document.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener('mouseout', handleMouseOut);
     };
   }, [mouseX, mouseY, isVisible]);
 

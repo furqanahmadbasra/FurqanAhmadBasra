@@ -25,7 +25,12 @@ export function RotatingText({
   }, [texts, interval]);
 
   return (
-    <span className={`inline-flex flex-col relative overflow-hidden h-[1.2em] vertical-align-middle ${className}`}>
+    <motion.span 
+      layout
+      transition={{ layout: { type: 'spring', stiffness: 350, damping: 35 } }}
+      className={`inline-flex flex-col relative overflow-hidden align-middle justify-center ${className}`}
+      style={{ height: '1.5em', paddingBottom: '0.1em', marginBottom: '-0.1em' }}
+    >
       <AnimatePresence mode="wait">
         <motion.span
           key={index}
@@ -34,13 +39,14 @@ export function RotatingText({
           exit={{ y: '-100%', opacity: 0 }}
           transition={{
             y: { type: 'spring', stiffness: 300, damping: 25 },
-            opacity: { duration: 0.2 },
+            opacity: { duration: 0.15 },
           }}
           className="inline-block whitespace-nowrap text-blue-600 font-semibold"
+          style={{ lineHeight: '1.2' }}
         >
           {texts[index]}
         </motion.span>
       </AnimatePresence>
-    </span>
+    </motion.span>
   );
 }

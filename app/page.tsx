@@ -15,6 +15,7 @@ import { AnimatedList } from '@/components/interactive/AnimatedList';
 import { RotatingText } from '@/components/interactive/RotatingText';
 import { ScrollVelocity } from '@/components/interactive/ScrollVelocity';
 import { FloatingLines } from '@/components/interactive/FloatingLines';
+import { HeroLede } from '@/components/interactive/HeroLede';
 import { featuredProjects, projects } from '@/data/projects';
 import { skillModules } from '@/data/skills';
 import { experience } from '@/data/experience';
@@ -56,11 +57,11 @@ export default function Home() {
           </FadeContent>
           <BlurText text="Furqan Ahmad Basra" delay={0.2} />
           <FadeContent delay={0.5}>
-            <p className="hero-lede flex flex-wrap items-center gap-x-2">
+            <HeroLede className="hero-lede flex flex-wrap items-center gap-x-2">
               <span>I build</span>
               <RotatingText texts={['practical AI systems', 'full-stack platforms', 'custom compilers', 'search engines']} />
               <span>from RAG document tools to ML analytics.</span>
-            </p>
+            </HeroLede>
             <div className="hero-actions" aria-label="Primary actions">
               <Magnet className="inline-block" strength={0.15}>
                 <Link className="button-primary" href="/projects">
@@ -131,7 +132,7 @@ export default function Home() {
 
       <ScrollVelocity text="FURQAN AHMAD BASRA / AI & FULL-STACK DEVELOPER / NUST STUDENT /" className="my-16" />
 
-      <div className="section-wrapper shade-white py-12">
+      <div className="section-wrapper shade-white">
         <section id="work" className="section-container content-section">
           <div className="section-heading">
             <ScrollReveal><p className="eyebrow">Selected work</p></ScrollReveal>
@@ -182,7 +183,7 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="section-wrapper shade-light-blue py-12">
+      <div className="section-wrapper shade-light-blue">
         <section id="skills" className="section-container content-section split-section relative min-h-[500px]">
           <div className="section-heading sticky-heading relative z-10">
             <ScrollReveal><p className="eyebrow">Technical skills</p></ScrollReveal>
@@ -207,7 +208,7 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="section-wrapper shade-slate py-12">
+      <div className="section-wrapper shade-slate">
         <section id="experience" className="section-container content-section">
           <div className="section-heading">
             <ScrollReveal><p className="eyebrow">Experience and education</p></ScrollReveal>
@@ -230,7 +231,7 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="section-wrapper shade-white py-12">
+      <div className="section-wrapper shade-white">
         <section className="section-container content-section credentials-section">
           <div className="section-heading">
             <ScrollReveal><p className="eyebrow">Certifications</p></ScrollReveal>
@@ -247,7 +248,7 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="section-wrapper shade-light-blue py-12">
+      <div className="section-wrapper shade-light-blue">
         <section id="contact" className="section-container contact-section relative">
           <FloatingLines />
           <div className="relative z-10">

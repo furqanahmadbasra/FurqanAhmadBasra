@@ -22,27 +22,29 @@ const groupedProjects = semesterOrder
 function ProjectRow({ project }: { project: Project }) {
   return (
     <ReflectiveCard className="all-project-card">
-      <div className="all-project-main">
-        <div className="card-topline">
-          <span>{categoryLabels[project.category]}</span>
-          <span>{project.tech.slice(0, 3).join(' / ')}</span>
+      <div className="all-project-card-header">
+        <div className="all-project-card-title">
+          <p className="project-tagline">{categoryLabels[project.category]}</p>
+          <h3>{project.title}</h3>
         </div>
-        <h3>{project.title}</h3>
-        <p className="project-tagline">{project.tagline}</p>
+        <Link href={`/work/${project.slug}`} className="button-secondary">
+          Read Case Study <ArrowRight size={14} aria-hidden className="ml-2 inline" />
+        </Link>
+      </div>
+      
+      <div className="all-project-card-body">
         <p>{project.description}</p>
-        <ul>
+        <ul className="mt-2 list-inside list-disc space-y-1" style={{ color: 'var(--muted)' }}>
           {project.highlights.slice(0, 3).map((highlight) => (
             <li key={highlight}>{highlight}</li>
           ))}
         </ul>
       </div>
-      <div className="all-project-side">
+
+      <div className="all-project-card-footer">
         <div className="tag-list">
-          {project.tech.slice(0, 7).map((tech) => <span key={tech}>{tech}</span>)}
+          {project.tech.map((tech) => <span key={tech}>{tech}</span>)}
         </div>
-        <Link href={`/work/${project.slug}`} className="text-link">
-          Details <ArrowRight size={15} aria-hidden />
-        </Link>
       </div>
     </ReflectiveCard>
   );

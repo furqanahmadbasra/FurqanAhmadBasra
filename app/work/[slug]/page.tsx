@@ -145,14 +145,14 @@ export default async function ProjectPage({ params }: PageProps) {
         </ScrollReveal>
 
         <nav className="project-neighbors" aria-label="Previous and next project">
-          <ReflectiveCard className="border border-line rounded-[8px] bg-surface h-full">
+          <ReflectiveCard className="neighbor-card border border-line rounded-[8px] bg-surface h-full">
             <Link href={`/work/${previous.slug}`} className="neighbor-link neighbor-prev h-full" style={{ border: 0, background: 'transparent', margin: 0 }}>
               <span>Previous project</span>
               <strong>{previous.title}</strong>
               <small>{previous.tagline}</small>
             </Link>
           </ReflectiveCard>
-          <ReflectiveCard className="border border-line rounded-[8px] bg-surface h-full">
+          <ReflectiveCard className="neighbor-card border border-line rounded-[8px] bg-surface h-full">
             <Link href={`/work/${next.slug}`} className="neighbor-link neighbor-next h-full" style={{ border: 0, background: 'transparent', margin: 0 }}>
               <span>Next project</span>
               <strong>{next.title}</strong>

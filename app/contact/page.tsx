@@ -31,8 +31,8 @@ export default function ContactPage() {
           <FadeContent yOffset={10}>
             <p className="eyebrow">Contact</p>
           </FadeContent>
-          <h1 className="text-4xl font-bold tracking-tight mb-4">
-            <GradientText colors={['#2563eb', '#3b82f6', '#1d4ed8']}>Let's build something useful.</GradientText>
+          <h1>
+            <GradientText colors={['#2563eb', '#3b82f6', '#1d4ed8']}>Let&apos;s build something useful.</GradientText>
           </h1>
           <FadeContent delay={0.4}>
             <p>

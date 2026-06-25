@@ -49,12 +49,37 @@ export function LanyardCard({
             transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' 
           }}
         >
-          {/* Front Face (Picture) */}
+          {/* Front Face (Details - Default) */}
           <div 
-            className="absolute w-full h-full rounded-2xl border border-slate-200/60 overflow-hidden shadow-xl bg-slate-100 flex items-center justify-center"
-            style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+            className="absolute w-full h-full rounded-2xl border border-slate-200/60 bg-[rgba(251,252,254,0.95)] backdrop-blur-xl overflow-hidden shadow-2xl p-6 flex flex-col justify-center"
+            style={{ 
+              backfaceVisibility: 'hidden', 
+              WebkitBackfaceVisibility: 'hidden',
+              transform: 'rotateY(0deg)' 
+            }}
           >
             {/* Lanyard Hole */}
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-3 bg-slate-200 rounded-full border border-slate-300 shadow-inner z-30" />
+            
+            <div className="mt-4">
+              {backContent}
+            </div>
+            <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+              <span className="bg-black/60 text-white px-4 py-1.5 rounded-full text-xs font-medium backdrop-blur-md">
+                Drag to swing • Hover to see photo
+              </span>
+            </div>
+          </div>
+          
+          {/* Back Face (Picture - Hovered/Flipped) */}
+          <div 
+            className="absolute w-full h-full rounded-2xl border border-slate-200/60 overflow-hidden shadow-xl bg-slate-100 flex items-center justify-center"
+            style={{ 
+              backfaceVisibility: 'hidden', 
+              WebkitBackfaceVisibility: 'hidden',
+              transform: 'rotateY(180deg)' 
+            }}
+          >
             <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-3 bg-white/50 rounded-full border border-slate-300 shadow-inner z-30 backdrop-blur-md" />
             
             <img 
@@ -66,28 +91,6 @@ export function LanyardCard({
                 e.currentTarget.parentElement?.classList.add('bg-gradient-to-br', 'from-blue-50', 'to-slate-100');
               }}
             />
-            <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-              <span className="bg-black/60 text-white px-4 py-1.5 rounded-full text-xs font-medium backdrop-blur-md">
-                Drag to swing • Click to flip
-              </span>
-            </div>
-          </div>
-          
-          {/* Back Face (Details) */}
-          <div 
-            className="absolute w-full h-full rounded-2xl border border-slate-200/60 bg-[rgba(251,252,254,0.95)] backdrop-blur-xl overflow-hidden shadow-2xl p-6 flex flex-col justify-center"
-            style={{ 
-              backfaceVisibility: 'hidden', 
-              WebkitBackfaceVisibility: 'hidden',
-              transform: 'rotateY(180deg)' 
-            }}
-          >
-            {/* Lanyard Hole on the back too */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-3 bg-slate-200 rounded-full border border-slate-300 shadow-inner z-30" />
-            
-            <div className="mt-4">
-              {backContent}
-            </div>
           </div>
         </div>
       </motion.div>

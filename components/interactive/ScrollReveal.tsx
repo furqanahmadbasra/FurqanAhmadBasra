@@ -13,7 +13,7 @@ export function ScrollReveal({
   delay?: number;
 }) {
   return (
-    <div className={`overflow-hidden ${className}`}>
+    <div className={`overflow-hidden pb-4 -mb-4 ${className}`}>
       <motion.div
         initial={{ y: '100%', opacity: 0 }}
         whileInView={{ y: '0%', opacity: 1 }}
