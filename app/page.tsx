@@ -88,19 +88,19 @@ export default function Home() {
             backContent={
               <>
                 <div>
-                  <p className="panel-label font-mono text-xs uppercase tracking-wider text-blue-600 mb-4">Focus</p>
+                  <p className="panel-label font-mono text-xs uppercase tracking-wider text-[var(--accent-strong)] mb-4">Focus</p>
                   <div className="flex flex-wrap gap-2">
                     {coreSkills.map((skill) => (
-                      <span key={skill} className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-medium border border-slate-200">
+                      <span key={skill} className="bg-[var(--surface-soft)] text-[var(--muted)] px-3 py-1 rounded-full text-xs font-medium border border-[var(--line)]">
                         {skill}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="w-full h-[1px] bg-slate-200 my-6" />
+                <div className="w-full h-[1px] bg-[var(--line)] my-6" />
                 <div>
-                  <p className="panel-label font-mono text-xs uppercase tracking-wider text-blue-600 mb-3">Currently</p>
-                  <p className="panel-text text-sm text-slate-600 leading-relaxed">
+                  <p className="panel-label font-mono text-xs uppercase tracking-wider text-[var(--accent-strong)] mb-3">Currently</p>
+                  <p className="panel-text text-sm text-[var(--muted)] leading-relaxed">
                     BS Computer Science student with hands-on work in AI/ML, backend systems,
                     frontend interfaces, and software reliability.
                   </p>

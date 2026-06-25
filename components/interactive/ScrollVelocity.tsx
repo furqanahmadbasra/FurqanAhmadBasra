@@ -66,7 +66,7 @@ export function ScrollVelocity({
     <div className={`overflow-hidden tracking-[-2px] leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap ${className}`}>
       <motion.div className="flex whitespace-nowrap uppercase font-bold text-[clamp(2.5rem,8vw,6rem)] will-change-transform" style={{ x }}>
         {Array.from({ length: 8 }).map((_, i) => (
-          <span key={i} className="block mr-12 opacity-10 select-none text-zinc-800">
+          <span key={i} className="block mr-12 opacity-[0.03] select-none text-white">
             {text}{' '}
           </span>
         ))}

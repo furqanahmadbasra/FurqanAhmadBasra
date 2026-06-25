@@ -63,7 +63,7 @@ export function FloatingLines() {
 
         // Draw line
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(37, 99, 235, ${line.opacity})`;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${line.opacity * 0.35})`;
         ctx.lineWidth = 1;
         ctx.moveTo(line.x, line.y);
         ctx.lineTo(

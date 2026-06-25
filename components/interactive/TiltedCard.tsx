@@ -54,7 +54,7 @@ export function TiltedCard({
     >
       <div 
         style={{ transform: 'translateZ(20px)' }} 
-        className="h-full w-full bg-white/50 rounded-[inherit]"
+        className="h-full w-full bg-[var(--surface)] rounded-[inherit]"
       >
         {children}
       </div>

@@ -51,7 +51,7 @@ export function LanyardCard({
         >
           {/* Front Face (Details - Default) */}
           <div 
-            className="absolute w-full h-full rounded-2xl border border-slate-200/60 bg-[rgba(251,252,254,0.95)] backdrop-blur-xl overflow-hidden shadow-2xl p-6 flex flex-col justify-center"
+            className="absolute w-full h-full rounded-2xl border border-[var(--line)] bg-[var(--surface)] backdrop-blur-xl overflow-hidden shadow-[var(--shadow)] p-6 flex flex-col justify-center"
             style={{ 
               backfaceVisibility: 'hidden', 
               WebkitBackfaceVisibility: 'hidden',
@@ -59,7 +59,7 @@ export function LanyardCard({
             }}
           >
             {/* Lanyard Hole */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-3 bg-slate-200 rounded-full border border-slate-300 shadow-inner z-30" />
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-3 bg-[var(--line)] rounded-full border border-[var(--surface-soft)] shadow-inner z-30" />
             
             <div className="mt-4">
               {backContent}
@@ -73,14 +73,14 @@ export function LanyardCard({
           
           {/* Back Face (Picture - Hovered/Flipped) */}
           <div 
-            className="absolute w-full h-full rounded-2xl border border-slate-200/60 overflow-hidden shadow-xl bg-slate-100 flex items-center justify-center"
+            className="absolute w-full h-full rounded-2xl border border-[var(--line)] overflow-hidden shadow-[var(--shadow)] bg-[var(--surface)] flex items-center justify-center"
             style={{ 
               backfaceVisibility: 'hidden', 
               WebkitBackfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)' 
             }}
           >
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-3 bg-white/50 rounded-full border border-slate-300 shadow-inner z-30 backdrop-blur-md" />
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-3 bg-[var(--surface-soft)] rounded-full border border-[var(--line)] shadow-inner z-30 backdrop-blur-md" />
             
             <img 
               src={imageSrc} 
@@ -88,7 +88,7 @@ export function LanyardCard({
               className="w-full h-full object-cover"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement?.classList.add('bg-gradient-to-br', 'from-blue-50', 'to-slate-100');
+                e.currentTarget.parentElement?.classList.add('bg-gradient-to-br', 'from-[var(--surface)]', 'to-[var(--bg)]');
               }}
             />
           </div>

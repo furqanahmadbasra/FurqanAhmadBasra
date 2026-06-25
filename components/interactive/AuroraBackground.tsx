@@ -10,7 +10,7 @@ export function AuroraBackground({
   return (
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
       {/* Background base */}
-      <div className="absolute inset-0 bg-slate-50"></div>
+      <div className="absolute inset-0 bg-[var(--bg)]"></div>
       
       {/* Animated blobs */}
       <div className="absolute -inset-[10%] opacity-80">
@@ -25,7 +25,7 @@ export function AuroraBackground({
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute top-[10%] left-[10%] w-[35vw] h-[35vw] rounded-full bg-blue-300/40 mix-blend-multiply filter blur-[80px]"
+          className="absolute top-[10%] left-[10%] w-[35vw] h-[35vw] rounded-full bg-zinc-600/10 filter blur-[80px]"
         />
         <motion.div
           animate={{
@@ -38,7 +38,7 @@ export function AuroraBackground({
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute top-[5%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-cyan-300/30 mix-blend-multiply filter blur-[90px]"
+          className="absolute top-[5%] right-[10%] w-[40vw] h-[40vw] rounded-full bg-neutral-600/10 filter blur-[90px]"
         />
         <motion.div
           animate={{
@@ -51,7 +51,7 @@ export function AuroraBackground({
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute bottom-[10%] left-[25%] w-[45vw] h-[45vw] rounded-full bg-indigo-300/30 mix-blend-multiply filter blur-[100px]"
+          className="absolute bottom-[10%] left-[25%] w-[45vw] h-[45vw] rounded-full bg-stone-500/10 filter blur-[100px]"
         />
       </div>
     </div>

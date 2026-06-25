@@ -41,7 +41,7 @@ export function RotatingText({
             y: { type: 'spring', stiffness: 300, damping: 25 },
             opacity: { duration: 0.15 },
           }}
-          className="inline-block whitespace-nowrap text-blue-600 font-semibold"
+          className="inline-block whitespace-nowrap text-[var(--accent-strong)] font-bold"
           style={{ lineHeight: '1.2' }}
         >
           {texts[index]}

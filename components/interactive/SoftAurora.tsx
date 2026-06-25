@@ -8,8 +8,8 @@ export function SoftAurora({
   className?: string;
 }) {
   return (
-    <div className={`absolute inset-0 overflow-hidden -z-20 bg-slate-50/50 ${className}`}>
-      <div className="absolute -inset-[20%] opacity-60">
+    <div className={`absolute inset-0 overflow-hidden -z-20 bg-[var(--bg)] ${className}`}>
+      <div className="absolute -inset-[20%] opacity-40">
         {/* Soft, slowly shifting color blobs */}
         <motion.div
           animate={{
@@ -18,7 +18,7 @@ export function SoftAurora({
             scale: [1, 1.15, 0.9, 1],
           }}
           transition={{ duration: 24, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-[15%] left-[15%] w-[45vw] h-[45vw] rounded-full bg-blue-200/30 blur-[100px] mix-blend-multiply will-change-transform"
+          className="absolute top-[15%] left-[15%] w-[45vw] h-[45vw] rounded-full bg-zinc-600/20 blur-[100px] will-change-transform"
         />
         <motion.div
           animate={{
@@ -27,7 +27,7 @@ export function SoftAurora({
             scale: [1, 0.9, 1.2, 1],
           }}
           transition={{ duration: 28, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-[10%] right-[15%] w-[50vw] h-[50vw] rounded-full bg-indigo-200/20 blur-[100px] mix-blend-multiply will-change-transform"
+          className="absolute top-[10%] right-[15%] w-[50vw] h-[50vw] rounded-full bg-zinc-500/10 blur-[100px] will-change-transform"
         />
         <motion.div
           animate={{
@@ -36,7 +36,7 @@ export function SoftAurora({
             scale: [1, 1.1, 0.95, 1],
           }}
           transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute bottom-[15%] left-[20%] w-[55vw] h-[55vw] rounded-full bg-cyan-200/30 blur-[100px] mix-blend-multiply will-change-transform"
+          className="absolute bottom-[15%] left-[20%] w-[55vw] h-[55vw] rounded-full bg-neutral-600/20 blur-[100px] will-change-transform"
         />
       </div>
     </div>

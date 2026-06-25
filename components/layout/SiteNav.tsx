@@ -53,12 +53,12 @@ export function SiteNav({ items = defaultItems }: SiteNavProps) {
           FAB
         </Link>
         
-        <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-6 text-slate-600 font-medium text-sm">
+        <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-6 text-[var(--muted)] font-medium text-sm">
           {items.map((item) => (
             <Link 
               key={`${item.href}-${item.label}`} 
               href={item.href}
-              className="relative py-1 hover:text-blue-600 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-blue-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
+              className="relative py-1 hover:text-[var(--ink)] transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[var(--accent-strong)] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
             >
               {item.label}
             </Link>
