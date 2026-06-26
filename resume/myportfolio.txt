@@ -1,0 +1,354 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage[top=0.45in, bottom=0.45in, left=0.55in, right=0.55in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{xcolor}
+
+\definecolor{primaryColor}{RGB}{0,79,144}
+
+\hypersetup{
+colorlinks=true,
+urlcolor=primaryColor
+}
+
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% =====================
+% HEADER
+% =====================
+\begin{center}
+    {\LARGE \textbf{Furqan Ahmad Basra}}\\[4pt]
+    \href{mailto:furqanacc5785@gmail.com}{furqanacc5785@gmail.com} \quad | \quad
+    \href{tel:03346525807}{0334-6525807} \quad | \quad
+    \href{https://www.linkedin.com/in/furqan-ahmad-basra-1812b62a2/}{LinkedIn} \quad | \quad
+    \href{https://github.com/furqanahmadbasra}{GitHub}
+\end{center}
+
+\vspace{-4pt}
+
+%====================
+% EDUCATION
+%====================
+\section*{Education}
+
+\textbf{National University of Sciences and Technology (NUST)} \hfill Islamabad, Pakistan \\
+Bachelor of Science in Computer Science \hfill 2023 -- Present \\
+CGPA: 3.16 / 4.00
+
+%====================
+% SKILLS
+%====================
+\section*{Technical Skills}
+
+\textbf{Programming Languages:}
+JavaScript, TypeScript, Python, C++, Java, C; experience building full-stack applications, machine learning systems, search engines, operating system simulations, and compiler projects.
+
+\vspace{2pt}
+\textbf{Frontend Development:}
+React, Next.js, React Native, Flutter, HTML, CSS, Tailwind CSS; developed responsive web applications, dashboards, real-time collaborative systems, event platforms, and AI-powered interfaces.
+
+\vspace{2pt}
+\textbf{Backend Development:}
+Node.js, Express.js, Spring Boot, RESTful APIs, GraphQL, Socket.IO, WebSockets; designed scalable backend architectures, authentication systems, real-time communication services, workflow automation, and distributed applications.
+
+\vspace{2pt}
+\textbf{Artificial Intelligence \& Machine Learning:}
+Machine Learning, Deep Learning, Natural Language Processing (NLP), Retrieval-Augmented Generation (RAG), Large Language Model (LLM) Applications, Prompt Engineering, Speech Recognition, Intent Classification, Recommendation Systems, XGBoost, Random Forest, Bayesian Networks, Attention Mechanisms, BiLSTM Networks.
+
+\vspace{2pt}
+\textbf{Data Science \& Analytics:}
+Data Cleaning, Feature Engineering, Exploratory Data Analysis (EDA), Statistical Analysis, Predictive Modeling, Data Visualization, Performance Evaluation, Sports Analytics, Agricultural Analytics.
+
+\vspace{2pt}
+\textbf{Databases \& Vector Stores:}
+PostgreSQL (Prisma ORM), MySQL, MongoDB (Mongoose), Redis, Pinecone, ChromaDB; experience with relational databases, NoSQL systems, vector databases, indexing, caching, and retrieval pipelines.
+
+\vspace{2pt}
+\textbf{Cloud, DevOps \& Distributed Systems:}
+Docker, Git, GitHub, CI/CD Fundamentals, Database Replication, Fault Tolerance, System Reliability, Distributed Architectures, Load Balancing, Sharding, CRDT-based Synchronization.
+
+\vspace{2pt}
+\textbf{Data Structures, Algorithms \& Systems:}
+Object-Oriented Programming (OOP), Data Structures \& Algorithms, Search Engine Design, Hash Tables, Inverted Indexes, TF-IDF Ranking, Compiler Construction, Operating Systems, Error Correcting Codes (ECC), Memory Scrubbing, System Simulation.
+
+\vspace{2pt}
+\textbf{AI Infrastructure \& Frameworks:}
+PyTorch, Pandas, NumPy, Scikit-learn, Sentence Transformers, Faster-Whisper, ChromaDB, Pinecone, n8n Automation, Retrieval Pipelines, Embedding Models.
+
+\vspace{2pt}
+\textbf{Other Tools \& Technologies:}
+Web Scraping (Scrapy), Data Visualization (Matplotlib, Seaborn), Jira, GitHub Actions, Agile Development, Software Testing, Technical Documentation, Research Writing.
+
+
+%====================
+% EXPERIENCE
+%====================
+\section*{Experience}
+
+\textbf{Intern -- Agritech Cybersecurity Zone (NSTP)} \hfill (23/06/2025 -- 20/08/2025)
+
+Worked as an AI/ML intern focusing on integrating artificial intelligence into cybersecurity applications. Contributed to the development of AI-powered firewall systems for threat detection, traffic analysis, anomaly identification, and real-time monitoring. Worked on machine learning workflows, data preprocessing, model experimentation, and deployment-oriented solutions for cybersecurity environments.
+
+\vspace{4pt}
+
+\textbf{Client Work -- Front End}
+
+Designed and implemented a responsive client website according to business requirements, focusing on user experience, responsiveness, accessibility, and modern UI design principles.
+
+%====================
+% PROJECTS
+%====================
+\section*{Projects}
+
+% =====================
+% Semester 1
+% =====================
+\subsection*{Semester 1}
+
+\textbf{Tic-Tac-Toe Game} \hfill \textit{C}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed a console-based Tic-Tac-Toe game using C programming.
+    \item Implemented game logic, input validation, turn management, and win-condition detection.
+    \item Applied fundamental programming concepts including loops, functions, arrays, and conditional logic.
+    \item Designed a two-player mode with a clean terminal interface and real-time feedback after each move.
+    \item Added detection of draw conditions and a simple replay feature without using dynamic memory allocation.
+\end{itemize}
+
+% =====================
+% Semester 2
+% =====================
+\subsection*{Semester 2}
+
+\textbf{Laptop Store Management System} \hfill \textit{Java, Spring Boot, MySQL}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed a full-stack e-commerce platform for laptop sales using Spring Boot and MySQL.
+    \item Implemented user authentication, product management, shopping cart, and order processing functionality.
+    \item Designed REST APIs and integrated database operations for inventory and customer management.
+    \item Built an admin dashboard for real-time inventory tracking, sales reports, and user management.
+    \item Used Thymeleaf templates to render dynamic product pages with search and filtering capabilities.
+\end{itemize}
+
+% =====================
+% Semester 3
+% =====================
+\subsection*{Semester 3}
+
+\textbf{Disease Prediction System} \hfill \textit{Python, Bayesian Networks}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed a disease prediction system using Bayesian Networks to model probabilistic relationships between symptoms and diseases.
+    \item Implemented inference mechanisms to estimate disease likelihood based on user-provided symptoms.
+    \item Evaluated prediction accuracy and explored uncertainty-aware decision making.
+    \item Created a network of 25+ symptoms and 10+ diseases, learned conditional probability tables from a small medical knowledge base.
+    \item Visualized the belief propagation process and generated ranked differential diagnoses with confidence scores.
+\end{itemize}
+
+\textbf{Search Engine} \hfill \textit{C++, React, Crow}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Built a search engine from scratch in C++ without STL, implementing custom hash tables, lexicons, forward indexes, and inverted indexes.
+    \item Developed backend APIs using the Crow framework and integrated them with a React frontend.
+    \item Implemented TF-IDF ranking and barrel indexing for efficient document retrieval.
+    \item Processed and indexed 50,000+ documents while maintaining sub-50ms query response times.
+    \item Added support for phrase queries and wildcard search using a positional index for precise term location.
+    \item Built a React search interface with query autocomplete, snippet generation, and paginated results.
+\end{itemize}
+
+\textbf{Information Security Risk Assessment} \hfill \textit{Information Security}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Performed a comprehensive risk assessment for a simulated enterprise environment.
+    \item Identified assets, threats, vulnerabilities, and risk exposure levels across organizational systems.
+    \item Evaluated mitigation strategies and prioritized risks based on likelihood and business impact.
+    \item Produced security recommendations aligned with industry risk management practices.
+    \item Created a risk register with quantitative ratings (likelihood $\times$ impact) and recommended controls for each identified risk.
+\end{itemize}
+
+% =====================
+% Semester 4
+% =====================
+\subsection*{Semester 4}
+
+\textbf{IoT Device Management System} \hfill \textit{React, Node.js, MongoDB}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed an IoT monitoring platform supporting device registration and real-time status tracking.
+    \item Built dashboards for visualizing sensor data and device health metrics.
+    \item Designed REST APIs and MongoDB schemas for scalable device management.
+    \item Simulated sensor data streams using MQTT and displayed live charts for temperature, humidity, and battery levels.
+    \item Implemented alert rules that trigger email notifications when metrics cross user-defined thresholds.
+\end{itemize}
+
+\textbf{Eventify – Event Management Platform} \hfill \textit{React, Node.js, MongoDB}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed backend APIs for event creation, registration, and administrative management.
+    \item Implemented role-based access control for participants, hosts, and administrators.
+    \item Integrated Leaflet.js for map-based event discovery and location-aware search.
+    \item Built responsive React interfaces with dynamic event listings and real-time updates.
+    \item Added RSVP tracking and email confirmation flows, allowing hosts to manage attendee limits and waitlists.
+    \item Integrated a rating and review system for past events to improve discovery.
+\end{itemize}
+
+\textbf{Custom Mobile Cover Store} \hfill \textit{Next.js, TypeScript, PostgreSQL, Prisma}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed an e-commerce platform for personalized mobile cover customization.
+    \item Enabled image uploads, design previews, and customization workflows.
+    \item Integrated payment processing and administrative order management features.
+    \item Designed scalable PostgreSQL schemas using Prisma ORM.
+    \item Implemented a canvas-based design tool allowing users to add text, stickers, and adjust layouts on phone templates.
+    \item Added an order tracking system with status updates from production to shipment.
+\end{itemize}
+
+% =====================
+% Semester 5
+% =====================
+\subsection*{Semester 5}
+
+\textbf{FIFA Recruitment Analytics Platform} \hfill \textit{Python, Data Analytics, Visualization}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Conducted comprehensive football player analytics for a simulated recruitment agency.
+    \item Evaluated players based on age, overall ratings, performance metrics, market value, potential growth, and geographical distribution.
+    \item Built visualizations and dashboards to identify optimal recruitment targets.
+    \item Applied data-driven decision making to support transfer and scouting strategies.
+    \item Created an interactive dashboard using Plotly Dash that filtered players by position, league, and value ranges.
+    \item Performed cluster analysis to group players into archetypes, aiding tactical fit assessments.
+\end{itemize}
+
+\textbf{Software-Based ECC and Memory Scrubbing Simulator} \hfill \textit{Python, Operating Systems, Reliability Engineering}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed an interactive simulator modeling Error-Correcting Codes (ECC) and memory scrubbing in OS-oriented computer systems.
+    \item Implemented Hamming SEC-DED algorithms for single-error correction and double-error detection.
+    \item Simulated transient hardware faults, memory bit flips, and subsystem reliability under fault conditions.
+    \item Integrated memory controller, CPU scheduling, thermal management, networking, storage, and security modules.
+    \item Built a PySide6 GUI for real-time visualization of fault injection, correction events, and system health metrics.
+    \item Added configurable scrubbing intervals and error injection rates to study trade-offs between performance and reliability.
+    \item Generated reliability reports showing mean time to failure (MTTF) and correction coverage statistics.
+\end{itemize}
+
+\textbf{AI-Powered Email Reply System} \hfill \textit{React, Node.js, MongoDB, Pinecone, n8n}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed backend automation pipelines to process and classify incoming emails in real time.
+    \item Integrated Pinecone vector database for context-aware AI responses across multi-turn conversations.
+    \item Built React frontend supporting editable responses, conversation history tracking, and voice/chat interaction.
+    \item Implemented version control for generated replies and workflow automation using n8n.
+    \item Designed an intent classifier that routes emails to appropriate response templates before AI generation.
+    \item Reduced manual reply drafting time by roughly 40\% while maintaining personalization through editable drafts.
+\end{itemize}
+
+\textbf{Crop Yield Prediction System} \hfill \textit{Python, Machine Learning}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Preprocessed agricultural datasets containing soil and weather information.
+    \item Applied feature engineering techniques to improve prediction quality.
+    \item Trained and optimized Random Forest and XGBoost models achieving approximately 92\% prediction accuracy.
+    \item Generated visual reports and performance evaluations for agricultural decision support.
+    \item Performed hyperparameter tuning using GridSearchCV and cross-validation to avoid overfitting.
+    \item Built a simple Flask API to serve predictions for custom input parameters like rainfall, pH, and temperature.
+\end{itemize}
+
+% =====================
+% Semester 6
+% =====================
+\subsection*{Semester 6}
+
+\textbf{Clutch.ai – Real-Time Interview Assistance System} \hfill \textit{Python, Deep Learning, RAG, ChromaDB}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed a real-time interview co-pilot capable of listening, transcribing, classifying, retrieving knowledge, and generating contextual interview assistance.
+    \item Integrated Faster-Whisper for speech recognition and implemented a BiLSTM with Attention mechanism for intent classification.
+    \item Built retrieval-augmented generation (RAG) pipelines using MiniLM embeddings and ChromaDB.
+    \item Implemented cross-attention reranking and contrastive embedding fine-tuning for improved retrieval accuracy.
+    \item Developed PyQt5 overlay interfaces supporting both demonstration and stealth modes.
+    \item Led development of the speech processing pipeline including audio capture, VAD systems, and ASR integration.
+    \item Engineered a low-latency audio stack that routes both microphone and system audio to the ASR with minimal delay.
+    \item Added real-time hint overlays with customizable transparency and position to support different interview scenarios.
+\end{itemize}
+
+\textbf{Flowra – Agentic Agile Orchestration Platform} \hfill \textit{AI Agents, GitHub, Jira, Discord, Analytics}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Designed an AI-assisted project coordination platform for Agile workflow automation.
+    \item Connected GitHub repositories, Jira boards, and communication platforms to verify real development progress.
+    \item Implemented proof-of-work verification using commits, pull requests, reviews, and communication signals.
+    \item Generated role-specific performance analytics and sprint-level contribution metrics.
+    \item Automated Jira workflow recommendations subject to managerial approval.
+    \item Built an evidence dashboard that highlights discrepancies between reported and actual activity for manager review.
+    \item Integrated Discord bot notifications for daily standup reminders and blocker alerts.
+\end{itemize}
+
+\textbf{Compiler for Custom Instruction Set} \hfill \textit{Compiler Construction, Parsing, Code Generation}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Designed and implemented a compiler for a custom instruction language.
+    \item Developed lexical analysis, syntax analysis, semantic validation, and code generation modules.
+    \item Constructed parsing mechanisms and translation workflows for instruction execution.
+    \item Added support for variable scoping, loops, and conditionals, generating intermediate three-address code.
+    \item Built a simple assembler to convert generated code into executable bytecode for a custom virtual machine.
+\end{itemize}
+
+\textbf{Document Intelligence System} \hfill \textit{Python, NLP, RAG, LLMs}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Built an intelligent question-answering platform capable of extracting answers directly from uploaded documents.
+    \item Implemented document parsing, chunking, embedding generation, and semantic retrieval pipelines.
+    \item Integrated large language models with retrieval-augmented generation to provide grounded responses.
+    \item Supported natural language querying across multiple document formats.
+    \item Added source citation highlighting, showing exact document passages used to generate each answer.
+    \item Optimized chunking strategies for different file types (PDF, DOCX, TXT) to preserve context and improve retrieval recall.
+\end{itemize}
+
+\textbf{DreamHome – Collaborative Interior Design Platform} \hfill \textit{React, Node.js, Socket.IO, PostgreSQL, Redis}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed a real-time collaborative interior design system for shared room planning.
+    \item Implemented WebSocket-based synchronization with low-latency collaborative editing.
+    \item Designed CRDT-based conflict resolution mechanisms for concurrent user actions.
+    \item Developed fault-tolerant persistence using replicated databases and recovery mechanisms.
+    \item Planned scalable room sharding and distributed architecture for supporting large user bases.
+    \item Built a drag-and-drop furniture placement canvas with snap-to-grid and layer management.
+    \item Added presence indicators, cursor tracking, and undo/redo shared across collaborators.
+\end{itemize}
+
+% =====================
+% Additional Projects
+% =====================
+\subsection*{Additional Projects}
+
+\textbf{AI-Powered Firewall Research} \hfill \textit{AI, Cybersecurity, Machine Learning}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed AI-assisted cybersecurity concepts during internship work at Agritech Cybersecurity Zone (NSTP).
+    \item Explored intelligent threat detection, anomaly analysis, and automated monitoring systems.
+    \item Investigated machine learning applications for modern firewall architectures.
+    \item Trained anomaly detection models on network traffic logs to flag unusual patterns without relying on static signatures.
+    \item Proposed a feedback loop where the system adapts detection thresholds based on operational context.
+\end{itemize}
+
+\textbf{Client Website Development} \hfill \textit{React, Frontend Development}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Designed and implemented a production-ready frontend according to client specifications.
+    \item Focused on responsive design, usability, and modern UI/UX principles.
+    \item Delivered a polished web experience optimized across multiple device categories.
+    \item Integrated a contact form with spam protection and a lightweight CMS for the client to update content.
+\end{itemize}
+
+\textbf{Gmail Chat Application} \hfill \textit{Flutter, Firebase, Gmail Authentication}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+    \item Developed a real‑time chat application using Flutter, enabling users to sign in exclusively with their Gmail accounts.
+    \item Used Firebase Authentication for secure Google sign‑in and Firestore for storing messages and user profiles.
+    \item Implemented one‑on‑one and group chat functionality with typing indicators and read receipts.
+    \item Added push notifications via Firebase Cloud Messaging so users receive alerts even when the app is in the background.
+    \item Built a message search feature that indexes chat history locally and highlights matching terms.
+    \item Designed a clean, material‑design interface with dark mode support and responsive layout for phones and tablets.
+\end{itemize}
+
+%====================
+% COURSES
+%====================
+\section*{Relevant Courses \& Certifications}
+
+Web Development Bootcamp -- Dr. Angela Yu (Udemy) \quad $\cdot$ \quad
+Advanced Python Programming -- Cisco Networking Academy \quad $\cdot$ \quad
+Machine Learning -- Andrew Ng (Coursera)
+
+\end{document}

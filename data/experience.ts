@@ -1,4 +1,4 @@
-﻿export interface ExperienceEntry {
+export interface ExperienceEntry {
   id: string;
   timestamp: string;
   title: string;
@@ -40,7 +40,7 @@ export const experience: ExperienceEntry[] = [
     status: 'IN_PROGRESS',
     details: [
       'Islamabad, Pakistan.',
-      'CGPA: 3.16 / 4.00.',
+      'CGPA: 3.18 / 4.00.',
       'Coursework and projects across AI, machine learning, compilers, operating systems, distributed systems, and data structures.',
     ],
   },

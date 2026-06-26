@@ -36,7 +36,7 @@ export function ElectricBorder({
       />
       {/* Content wrapper */}
       <div
-        className="relative z-10 w-full h-full bg-[#f6f7f9] text-[#17202a]"
+        className="relative z-10 w-full h-full bg-[var(--bg)] text-[var(--ink)]"
         style={{
           borderRadius: `calc(${borderRadius} - 1.5px)`,
         }}

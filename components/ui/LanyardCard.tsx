@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 interface LanyardCardProps {
   imageSrc?: string;
@@ -21,25 +21,51 @@ export function LanyardCard({
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   
+  // 3D Tilt values
+  const rotateX = useSpring(0, { stiffness: 300, damping: 30 });
+  const rotateY = useSpring(0, { stiffness: 300, damping: 30 });
+  
   // Add a slight rotation based on horizontal drag to simulate pendulum swinging
   const rotateZ = useTransform(x, [-200, 200], [-15, 15]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    // Calculate rotation (-20deg to 20deg)
+    const rX = ((mouseY / height) - 0.5) * -40; // Tilt up/down
+    const rY = ((mouseX / width) - 0.5) * 40; // Tilt left/right
+    
+    rotateX.set(rX);
+    rotateY.set(rY);
+  };
+
+  const handleMouseLeave = () => {
+    setIsFlipped(false);
+    rotateX.set(0);
+    rotateY.set(0);
+  };
 
   return (
     <div className="relative w-full h-[500px] flex flex-col items-center group perspective-1000">
       
 
-
-      {/* The Actual Card (Draggable and Flippable) */}
+      {/* The Actual Card (Draggable, Flippable, and Tiltable) */}
       <motion.div
         ref={cardRef}
         drag
         dragElastic={0.2}
         dragConstraints={{ top: 0, left: -50, right: 50, bottom: 50 }}
         whileDrag={{ cursor: 'grabbing', scale: 1.05 }}
-        style={{ x, y, rotateZ, originY: -0.5 }}
+        style={{ x, y, rotateZ, rotateX, rotateY, originY: -0.5 }}
         className="relative w-full max-w-[340px] h-[360px] cursor-grab mt-[60px] z-20"
         onMouseEnter={() => setIsFlipped(true)}
-        onMouseLeave={() => setIsFlipped(false)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
         onClick={() => setIsFlipped(!isFlipped)}
       >
         <div 

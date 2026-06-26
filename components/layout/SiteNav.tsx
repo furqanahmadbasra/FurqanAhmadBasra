@@ -33,7 +33,7 @@ export function SiteNav({ items = defaultItems }: SiteNavProps) {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
+      className="fixed top-[18px] left-0 right-0 z-50 flex justify-center px-4"
     >
       <motion.div 
         style={{
@@ -42,7 +42,7 @@ export function SiteNav({ items = defaultItems }: SiteNavProps) {
           backdropFilter: backdropBlur,
           WebkitBackdropFilter: backdropBlur,
         }}
-        className="flex items-center justify-between gap-8 px-4 py-3 border-transparent rounded-full max-w-[800px] w-full"
+        className="flex items-center justify-between gap-8 px-4 py-3 border border-[var(--line)] rounded-full max-w-[800px] w-full"
       >
         <Link 
           href="/" 
