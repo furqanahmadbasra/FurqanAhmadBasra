@@ -174,7 +174,7 @@ export default function Home() {
                   {project.tech.slice(0, 6).map((tech) => <span key={tech}>{tech}</span>)}
                 </div>
                 <Link href={`/work/${project.slug}`} className="text-link">
-                  Read case study <ArrowRight size={15} aria-hidden />
+                  View details <ArrowRight size={15} aria-hidden />
                 </Link>
               </ReflectiveCard>
             ))}

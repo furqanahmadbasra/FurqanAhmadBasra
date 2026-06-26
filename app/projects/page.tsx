@@ -29,7 +29,7 @@ function ProjectRow({ project }: { project: Project }) {
           <h3>{project.title}</h3>
         </div>
         <Link href={`/work/${project.slug}`} className="button-secondary">
-          Read Case Study <ArrowRight size={14} aria-hidden className="ml-2 inline" />
+          View Details <ArrowRight size={14} aria-hidden className="ml-2 inline" />
         </Link>
       </div>
       

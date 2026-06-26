@@ -77,7 +77,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </header>
 
         <ScrollReveal>
-          <section className="case-study-grid" aria-label="Project case study summary">
+          <section className="case-study-grid" aria-label="Project details summary">
             <div className="detail-card detail-card-large">
               <div className="section-icon-heading">
                 <Target size={18} aria-hidden />
