@@ -9,6 +9,7 @@ import { ScrollReveal } from '@/components/interactive/ScrollReveal';
 import { AnimatedList } from '@/components/interactive/AnimatedList';
 import { ReflectiveCard } from '@/components/interactive/ReflectiveCard';
 import { FadeContent } from '@/components/interactive/FadeContent';
+import { ProjectsParticles } from '@/components/interactive/ProjectsParticles';
 
 const semesterOrder = ['Semester 6', 'Semester 5', 'Semester 4', 'Semester 3', 'Semester 2', 'Semester 1', 'Additional'];
 
@@ -52,7 +53,19 @@ function ProjectRow({ project }: { project: Project }) {
 
 export default function ProjectsPage() {
   return (
-    <main className="site-shell relative">
+    <main className="site-shell relative min-h-screen">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-black">
+        <ProjectsParticles 
+          particleColors={['#ffffff', '#a1a1aa', '#71717a']} 
+          particleCount={3500} 
+          particleSpread={8} 
+          speed={0.03} 
+          particleBaseSize={200} 
+          alphaParticles={true} 
+          disableRotation={false} 
+          cameraDistance={15}
+        />
+      </div>
       <SiteNav />
 
       <section className="projects-hero section-container relative z-10">

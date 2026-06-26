@@ -8,7 +8,7 @@ import { CountUp } from '@/components/interactive/CountUp';
 import { ReflectiveCard } from '@/components/interactive/ReflectiveCard';
 import { TiltedCard } from '@/components/interactive/TiltedCard';
 import { ShinyText } from '@/components/interactive/ShinyText';
-import { SoftAurora } from '@/components/interactive/SoftAurora';
+import { Particles } from '@/components/interactive/Particles';
 import { Magnet } from '@/components/interactive/Magnet';
 import { ScrollReveal } from '@/components/interactive/ScrollReveal';
 import { AnimatedList } from '@/components/interactive/AnimatedList';
@@ -44,8 +44,18 @@ export default function Home() {
   return (
     <main className="site-shell relative min-h-screen">
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="sticky top-0 w-full h-screen">
-          <SoftAurora />
+        <div className="sticky top-0 w-full h-screen bg-transparent">
+          <Particles 
+            particleColors={['#ffffff', '#a1a1aa']} 
+            particleCount={300} 
+            particleSpread={15} 
+            speed={0.1} 
+            particleBaseSize={120} 
+            moveParticlesOnHover={true} 
+            alphaParticles={true} 
+            disableRotation={false} 
+            cameraDistance={25}
+          />
         </div>
       </div>
       <SiteNav />

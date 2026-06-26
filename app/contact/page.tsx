@@ -8,7 +8,7 @@ import { FadeContent } from '@/components/interactive/FadeContent';
 import { Magnet } from '@/components/interactive/Magnet';
 
 import { GradientText } from '@/components/interactive/GradientText';
-import { Silk } from '@/components/interactive/Silk';
+import { Ferrofluid } from '@/components/interactive/Ferrofluid';
 
 const contactLinks = [
   { label: 'Email', value: 'furqanacc5785@gmail.com', href: 'mailto:furqanacc5785@gmail.com', icon: Mail },
@@ -19,8 +19,18 @@ const contactLinks = [
 
 export default function ContactPage() {
   return (
-    <main className="site-shell relative">
-      <Silk />
+    <main className="site-shell relative min-h-screen">
+      <div className="fixed inset-0 overflow-hidden pointer-events-auto -z-10 bg-black">
+        <Ferrofluid 
+          colors={['#ffffff', '#a1a1aa', '#71717a']} 
+          speed={0.5} 
+          scale={1.2} 
+          turbulence={1.5} 
+          mouseInteraction={true} 
+          mouseStrength={1.5} 
+          flowDirection="down" 
+        />
+      </div>
       <SiteNav />
 
       <section className="section-container contact-page-shell relative z-10">
@@ -32,7 +42,7 @@ export default function ContactPage() {
             <p className="eyebrow">Contact</p>
           </FadeContent>
           <h1>
-            <GradientText colors={['#2563eb', '#3b82f6', '#1d4ed8']}>Let&apos;s build something useful.</GradientText>
+            <GradientText colors={['#ffffff', '#a1a1aa', '#71717a']}>Let&apos;s build something useful.</GradientText>
           </h1>
           <FadeContent delay={0.4}>
             <p>

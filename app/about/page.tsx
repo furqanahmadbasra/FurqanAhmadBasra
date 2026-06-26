@@ -12,6 +12,7 @@ import { TiltedCard } from '@/components/interactive/TiltedCard';
 import { AnimatedList } from '@/components/interactive/AnimatedList';
 import { FadeContent } from '@/components/interactive/FadeContent';
 import { Magnet } from '@/components/interactive/Magnet';
+import { ScrollingLine } from '@/components/interactive/ScrollingLine';
 
 const quickStats = [
   { label: 'Location', value: 'Islamabad, Pakistan' },
@@ -22,7 +23,10 @@ const quickStats = [
 
 export default function AboutPage() {
   return (
-    <main className="site-shell">
+    <main className="site-shell relative">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <ScrollingLine />
+      </div>
       <SiteNav />
 
       <section className="page-hero section-container">
