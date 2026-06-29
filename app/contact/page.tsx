@@ -62,12 +62,12 @@ export default function ContactPage() {
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                className="w-full h-full flex items-center"
+                className="w-full h-full flex items-center min-w-0"
               >
-                <item.icon size={18} aria-hidden />
-                <span>
-                  <strong>{item.label}</strong>
-                  {item.value}
+                <item.icon size={18} aria-hidden className="flex-shrink-0" />
+                <span className="flex flex-col min-w-0 overflow-hidden ml-3">
+                  <strong className="truncate">{item.label}</strong>
+                  <span className="truncate text-sm text-[var(--muted)]">{item.value}</span>
                 </span>
               </a>
             </Magnet>

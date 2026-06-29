@@ -94,7 +94,7 @@ export default function Home() {
 
         <div className="hidden lg:flex w-full h-full min-h-[500px] items-start justify-center pt-8">
           <LanyardCard 
-            imageSrc="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=800&auto=format&fit=crop" 
+            imageSrc="/your_picture.jpeg" 
             backContent={
               <>
                 <div>
@@ -270,17 +270,17 @@ export default function Home() {
             </p>
           </div>
           <div className="contact-card relative z-10">
-            <Magnet strength={0.15}>
-              <a href="mailto:furqanacc5785@gmail.com"><Mail size={18} aria-hidden /> furqanacc5785@gmail.com</a>
+            <Magnet strength={0.15} className="w-full">
+              <a href="mailto:furqanacc5785@gmail.com" className="w-full flex items-center gap-3"><Mail size={18} aria-hidden /> furqanacc5785@gmail.com</a>
             </Magnet>
-            <Magnet strength={0.15}>
-              <a href="tel:+923346525807"><Phone size={18} aria-hidden /> +92 334 6525807</a>
+            <Magnet strength={0.15} className="w-full">
+              <a href="tel:+923346525807" className="w-full flex items-center gap-3"><Phone size={18} aria-hidden /> +92 334 6525807</a>
             </Magnet>
-            <Magnet strength={0.15}>
-              <a href="https://github.com/furqanahmadbasra" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> GitHub</a>
+            <Magnet strength={0.15} className="w-full">
+              <a href="https://github.com/furqanahmadbasra" target="_blank" rel="noreferrer" className="w-full flex items-center gap-3"><ExternalLink size={18} aria-hidden /> GitHub</a>
             </Magnet>
-            <Magnet strength={0.15}>
-              <a href="https://www.linkedin.com/in/furqan-ahmad-basra-1812b62a2/" target="_blank" rel="noreferrer"><ExternalLink size={18} aria-hidden /> LinkedIn</a>
+            <Magnet strength={0.15} className="w-full">
+              <a href="https://www.linkedin.com/in/furqan-ahmad-basra-1812b62a2/" target="_blank" rel="noreferrer" className="w-full flex items-center gap-3"><ExternalLink size={18} aria-hidden /> LinkedIn</a>
             </Magnet>
           </div>
         </section>

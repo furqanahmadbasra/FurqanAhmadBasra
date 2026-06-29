@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 interface LanyardCardProps {
@@ -108,13 +109,18 @@ export function LanyardCard({
           >
             <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-3 bg-[var(--surface-soft)] rounded-full border border-[var(--line)] shadow-inner z-30 backdrop-blur-md" />
             
-            <img 
+            <Image 
               src={imageSrc} 
               alt={imageAlt} 
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 400px"
+              priority
+              unoptimized={imageSrc.endsWith('.svg')}
               onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement?.classList.add('bg-gradient-to-br', 'from-[var(--surface)]', 'to-[var(--bg)]');
+                const target = e.currentTarget as HTMLImageElement;
+                target.style.display = 'none';
+                target.parentElement?.classList.add('bg-gradient-to-br', 'from-[var(--surface)]', 'to-[var(--bg)]');
               }}
             />
           </div>

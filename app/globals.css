@@ -1287,7 +1287,6 @@ select {
 
   .contact-page-shell {
     min-height: auto;
-    padding-top: 80px;
   }
 
   .about-grid .profile-panel {
@@ -1298,7 +1297,7 @@ select {
 
 @media (max-width: 680px) {
   .page-hero {
-    padding-top: 72px;
+    padding-top: 120px;
     padding-bottom: 24px;
   }
 
@@ -1392,7 +1391,7 @@ select {
   }
 
   .project-detail-page {
-    padding-top: 72px;
+    padding-top: 120px;
   }
 
   .project-facts-card {
@@ -1608,8 +1607,9 @@ select {
   .projects-hero,
   .page-hero,
   .contact-page-shell,
+  .project-detail-page,
   .hero-section {
-    padding-top: 100px !important; /* Ensure clear space below fixed navbar */
+    padding-top: 120px !important; /* Ensure clear space below fixed navbar */
   }
 
   .project-group {

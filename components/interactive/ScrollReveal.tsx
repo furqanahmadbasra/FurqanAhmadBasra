@@ -15,7 +15,7 @@ export function ScrollReveal({
   return (
     <div className={`overflow-hidden pb-4 -mb-4 ${className}`}>
       <motion.div
-        initial={{ y: '100%', opacity: 0 }}
+        initial={{ y: 40, opacity: 0 }}
         whileInView={{ y: '0%', opacity: 1 }}
         viewport={{ once: true, margin: '-20px' }}
         transition={{
