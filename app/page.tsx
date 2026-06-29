@@ -67,18 +67,18 @@ export default function Home() {
           </FadeContent>
           <BlurText text="Furqan Ahmad Basra" delay={0.2} />
           <FadeContent delay={0.5}>
-            <HeroLede className="hero-lede flex flex-wrap items-center gap-x-2">
+            <HeroLede className="hero-lede flex flex-wrap items-center gap-x-2 gap-y-1">
               <span>I build</span>
               <RotatingText texts={['practical AI systems', 'full-stack platforms', 'custom compilers', 'search engines']} />
               <span>from RAG document tools to ML analytics.</span>
             </HeroLede>
             <div className="hero-actions" aria-label="Primary actions">
-              <Magnet className="inline-block" strength={0.15}>
+              <Magnet className="inline-block w-full md:w-auto" strength={0.15}>
                 <Link className="button-primary" href="/projects">
                   View All Projects <ArrowRight size={17} aria-hidden />
                 </Link>
               </Magnet>
-              <Magnet className="inline-block" strength={0.15}>
+              <Magnet className="inline-block w-full md:w-auto" strength={0.15}>
                 <a className="button-secondary" href="mailto:furqanacc5785@gmail.com">
                   <Mail size={17} aria-hidden /> Contact Me
                 </a>
@@ -92,9 +92,9 @@ export default function Home() {
           </FadeContent>
         </div>
 
-        <div className="w-full h-full min-h-[500px] flex items-start justify-center pt-8">
+        <div className="hidden lg:flex w-full h-full min-h-[500px] items-start justify-center pt-8">
           <LanyardCard 
-            imageSrc="/your-picture.jpg" 
+            imageSrc="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=800&auto=format&fit=crop" 
             backContent={
               <>
                 <div>

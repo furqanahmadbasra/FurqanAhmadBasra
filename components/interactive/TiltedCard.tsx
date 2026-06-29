@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
 
 export function TiltedCard({
@@ -11,6 +11,15 @@ export function TiltedCard({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -38,6 +47,17 @@ export function TiltedCard({
     x.set(0);
     y.set(0);
   };
+
+  // On mobile, render a simple non-tilt wrapper to prevent skewing issues
+  if (isMobile) {
+    return (
+      <div className={className}>
+        <div className="h-full w-full bg-[var(--surface)] rounded-[inherit]">
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div

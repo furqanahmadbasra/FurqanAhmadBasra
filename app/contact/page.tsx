@@ -20,7 +20,7 @@ const contactLinks = [
 export default function ContactPage() {
   return (
     <main className="site-shell relative min-h-screen">
-      <div className="fixed inset-0 overflow-hidden pointer-events-auto -z-10 bg-black">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none md:pointer-events-auto -z-10 bg-black">
         <Ferrofluid 
           colors={['#ffffff', '#a1a1aa', '#71717a']} 
           speed={0.5} 

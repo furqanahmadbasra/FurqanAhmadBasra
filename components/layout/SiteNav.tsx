@@ -45,22 +45,29 @@ export function SiteNav({ items = defaultItems }: SiteNavProps) {
   }, [isMobileMenuOpen]);
 
   return (
-    <>
-      <motion.header 
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-[18px] left-0 right-0 z-[60] flex justify-center px-4"
+    <motion.header 
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-[18px] left-0 right-0 z-[60] flex justify-center px-4"
+    >
+      <motion.div 
+        layout
+        transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+        style={isMobileMenuOpen ? {
+          background: 'var(--surface)',
+          boxShadow: '0px 8px 32px rgba(0, 0, 0, 0.4)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+        } : {
+          background: backgroundY,
+          boxShadow: shadowY,
+          backdropFilter: backdropBlur,
+          WebkitBackdropFilter: backdropBlur,
+        }}
+        className={`flex flex-col border border-[var(--line)] max-w-[800px] w-full overflow-hidden ${isMobileMenuOpen ? 'rounded-[24px]' : 'rounded-[32px]'}`}
       >
-        <motion.div 
-          style={{
-            background: backgroundY,
-            boxShadow: shadowY,
-            backdropFilter: backdropBlur,
-            WebkitBackdropFilter: backdropBlur,
-          }}
-          className="flex items-center justify-between gap-8 px-4 py-3 border border-[var(--line)] rounded-full max-w-[800px] w-full"
-        >
+        <div className="flex items-center justify-between px-4 py-3 w-full">
           <Link 
             href="/" 
             className="flex items-center justify-center w-10 h-10 bg-black text-white font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-md" 
@@ -92,40 +99,32 @@ export function SiteNav({ items = defaultItems }: SiteNavProps) {
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-        </motion.div>
-      </motion.header>
+        </div>
 
-      {/* Mobile Navigation Overlay */}
-      <AnimatePresence>
+        {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed inset-0 z-[55] bg-[var(--bg)] flex flex-col justify-center items-center px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2, delay: 0.1 }}
+            className="md:hidden flex flex-col items-start px-2 pb-4 w-full"
           >
-            <nav className="flex flex-col items-center gap-8 text-[var(--ink)] font-bold text-3xl">
-              {items.map((item, index) => (
-                <motion.div
+            <div className="w-[calc(100%-32px)] mx-auto h-[1px] bg-[var(--line)] mb-2" />
+            <div className="flex flex-col w-full">
+              {items.map((item) => (
+                <Link 
                   key={`${item.href}-${item.label}-mobile`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + index * 0.05 }}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-[var(--ink)] font-normal text-[1.05rem] hover:text-white hover:bg-[var(--surface-soft)] rounded-xl mx-2 px-4 py-3 transition-colors text-left"
                 >
-                  <Link 
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="hover:text-[var(--muted)] transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
+                  {item.label}
+                </Link>
               ))}
-            </nav>
+            </div>
           </motion.div>
         )}
-      </AnimatePresence>
-    </>
+      </motion.div>
+    </motion.header>
   );
 }

@@ -68,7 +68,7 @@ export default function ProjectsPage() {
       </div>
       <SiteNav />
 
-      <section className="projects-hero section-container relative z-10">
+      <section className="projects-hero section-container relative z-10 pt-20 md:pt-0">
         <Link href="/" className="back-link">
           <ArrowLeft size={16} aria-hidden /> Back to home
         </Link>

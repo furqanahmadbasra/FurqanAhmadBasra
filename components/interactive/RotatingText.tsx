@@ -28,7 +28,7 @@ export function RotatingText({
     <motion.span 
       layout
       transition={{ layout: { type: 'spring', stiffness: 350, damping: 35 } }}
-      className={`inline-flex flex-col relative overflow-hidden align-middle justify-center ${className}`}
+      className={`inline-flex flex-col relative overflow-hidden align-middle justify-center max-w-full ${className}`}
       style={{ height: '1.5em', paddingBottom: '0.1em', marginBottom: '-0.1em' }}
     >
       <AnimatePresence mode="wait">

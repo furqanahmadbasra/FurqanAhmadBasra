@@ -17,7 +17,7 @@ export function CountUp({
   suffix?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-50px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
   const motionValue = useMotionValue(from);
   const springValue = useSpring(motionValue, {
     duration: duration * 1000,
