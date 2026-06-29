@@ -125,6 +125,7 @@ select {
 }
 
 .hero-copy h1,
+.projects-hero h1,
 .section-heading h2,
 .contact-section h2 {
   margin: 0;
@@ -134,6 +135,7 @@ select {
   letter-spacing: 0;
 }
 
+.projects-hero h1,
 .hero-copy h1 {
   max-width: 820px;
   font-size: clamp(3.6rem, 8vw, 7.4rem);
@@ -586,7 +588,8 @@ select {
     gap: 24px;
   }
 
-  .hero-copy h1 {
+  .hero-copy h1,
+  .projects-hero h1 {
     font-size: clamp(2.2rem, 11vw, 3.6rem);
     word-break: break-word;
   }
