@@ -160,8 +160,8 @@ export default function AboutPage() {
       </section>
 
       <section className="section-container page-bottom-cta">
-        <Magnet strength={0.15}>
-          <Link href="/projects" className="button-primary">
+        <Magnet strength={0.15} className="w-full md:w-auto">
+          <Link href="/projects" className="button-primary w-full justify-center md:w-auto">
             See all projects <ArrowRight size={17} aria-hidden />
           </Link>
         </Magnet>

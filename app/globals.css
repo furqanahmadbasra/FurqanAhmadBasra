@@ -1657,7 +1657,7 @@ select {
 
   .archive-summary span {
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
 
   .all-project-card {

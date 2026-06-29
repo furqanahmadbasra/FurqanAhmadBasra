@@ -63,13 +63,13 @@ export default async function ProjectPage({ params }: PageProps) {
             <p>{project.tagline}</p>
           </FadeContent>
           <div className="detail-actions" aria-label="Project movement">
-            <Magnet strength={0.1}>
-              <Link href={`/work/${previous.slug}`} className="button-secondary">
+            <Magnet strength={0.1} className="w-full md:w-auto">
+              <Link href={`/work/${previous.slug}`} className="button-secondary w-full justify-center md:w-auto">
                 <ArrowLeft size={17} aria-hidden /> Previous project
               </Link>
             </Magnet>
-            <Magnet strength={0.1}>
-              <Link href={`/work/${next.slug}`} className="button-primary">
+            <Magnet strength={0.1} className="w-full md:w-auto">
+              <Link href={`/work/${next.slug}`} className="button-primary w-full justify-center md:w-auto">
                 Next project <ArrowRight size={17} aria-hidden />
               </Link>
             </Magnet>
