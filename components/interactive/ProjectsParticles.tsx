@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Renderer, Camera, Geometry, Program, Mesh } from 'ogl';
 
 interface ProjectsParticlesProps {
@@ -99,6 +99,22 @@ const fragment = /* glsl */ `
   }
 `;
 
+function useDeviceScale() {
+  const [scale, setScale] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+  useEffect(() => {
+    const check = () => {
+      const w = window.innerWidth;
+      if (w < 640) setScale('mobile');
+      else if (w < 1024) setScale('tablet');
+      else setScale('desktop');
+    };
+    check();
+    window.addEventListener('resize', check, { passive: true });
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  return scale;
+}
+
 export function ProjectsParticles({
   particleCount = 200,
   particleSpread = 10,
@@ -113,18 +129,36 @@ export function ProjectsParticles({
   className = '',
 }: ProjectsParticlesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const deviceScale = useDeviceScale();
+
+  // Responsive overrides — prevent distortion on narrow viewports
+  const resolvedCount =
+    deviceScale === 'mobile' ? Math.round(particleCount * 0.12) :
+    deviceScale === 'tablet' ? Math.round(particleCount * 0.3) :
+    particleCount;
+  const resolvedBaseSize =
+    deviceScale === 'mobile' ? particleBaseSize * 0.45 :
+    deviceScale === 'tablet' ? particleBaseSize * 0.65 :
+    particleBaseSize;
+  const resolvedCamera =
+    deviceScale === 'mobile' ? cameraDistance * 1.8 :
+    deviceScale === 'tablet' ? cameraDistance * 1.35 :
+    cameraDistance;
+  const resolvedSpread =
+    deviceScale === 'mobile' ? particleSpread * 0.7 :
+    particleSpread;
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const renderer = new Renderer({ dpr: pixelRatio, depth: false, alpha: true });
+    const renderer = new Renderer({ dpr: Math.min(pixelRatio, deviceScale === 'mobile' ? 1 : 2), depth: false, alpha: true });
     const gl = renderer.gl;
     container.appendChild(gl.canvas);
     gl.clearColor(0, 0, 0, 0);
 
     const camera = new Camera(gl, { fov: 15 });
-    camera.position.set(0, 0, cameraDistance);
+    camera.position.set(0, 0, resolvedCamera);
 
     const resize = () => {
       const width = container.clientWidth;
@@ -135,7 +169,7 @@ export function ProjectsParticles({
     window.addEventListener('resize', resize, false);
     resize();
 
-    const count = particleCount;
+    const count = resolvedCount;
     const positions = new Float32Array(count * 3);
     const randoms = new Float32Array(count * 4);
     const colors = new Float32Array(count * 3);
@@ -167,8 +201,8 @@ export function ProjectsParticles({
       fragment,
       uniforms: {
         uTime: { value: 0 },
-        uSpread: { value: particleSpread },
-        uBaseSize: { value: particleBaseSize * pixelRatio },
+        uSpread: { value: resolvedSpread },
+        uBaseSize: { value: resolvedBaseSize * Math.min(pixelRatio, deviceScale === 'mobile' ? 1 : 2) },
         uSizeRandomness: { value: sizeRandomness },
         uAlphaParticles: { value: alphaParticles ? 1 : 0 },
       },
@@ -210,15 +244,16 @@ export function ProjectsParticles({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
-    particleCount,
-    particleSpread,
+    resolvedCount,
+    resolvedSpread,
+    resolvedBaseSize,
+    resolvedCamera,
     speed,
     alphaParticles,
-    particleBaseSize,
     sizeRandomness,
-    cameraDistance,
     disableRotation,
     pixelRatio,
+    deviceScale,
   ]);
 
   return <div ref={containerRef} className={`relative w-full h-full ${className}`} />;

@@ -544,7 +544,16 @@ select {
     max-width: 620px;
   }
 
-  .stats-section,
+  /* Tablet: stats stay 2-col and numbers are comfortably large */
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .stat-card strong {
+    font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+  }
+
   .project-grid,
   .compact-projects {
     grid-template-columns: repeat(2, 1fr);
@@ -623,21 +632,23 @@ select {
     font-size: 0.7rem;
   }
 
+  /* Mobile: stats drop to 2-column, numbers stay impactful */
   .stats-section {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
   .stat-card {
-    padding: 16px;
+    padding: 16px 14px;
   }
 
   .stat-card strong {
-    font-size: clamp(1.6rem, 8vw, 2.4rem);
+    font-size: clamp(1.85rem, 7.5vw, 2.6rem);
+    margin-bottom: 6px;
   }
 
   .stat-card span {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     line-height: 1.35;
   }
 
