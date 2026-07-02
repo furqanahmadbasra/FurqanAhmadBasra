@@ -21,14 +21,6 @@ import { skillModules } from '@/data/skills';
 import { experience } from '@/data/experience';
 import { certifications } from '@/data/certifications';
 
-const coreSkills = [
-  'AI/ML systems',
-  'RAG applications',
-  'Full-stack products',
-  'Search engines',
-  'Distributed systems',
-  'Compiler projects',
-];
 
 const stats = [
   { value: '20+', label: 'Projects across AI, web, systems, and mobile' },
@@ -43,7 +35,8 @@ const additionalProjects = projects.filter((project) => !project.featured).slice
 export default function Home() {
   return (
     <main className="site-shell relative min-h-screen">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+      {/* Particle background — pointer-events disabled so lanyard is grabbable */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
         <div className="sticky top-0 w-full h-screen bg-transparent">
           <Particles 
             particleColors={['#ffffff', '#a1a1aa']} 
@@ -92,31 +85,17 @@ export default function Home() {
           </FadeContent>
         </div>
 
-        <div className="hidden lg:flex w-full h-full min-h-[500px] items-start justify-center pt-8">
-          <LanyardCard 
-            imageSrc="/your_picture.jpeg" 
-            backContent={
-              <>
-                <div>
-                  <p className="panel-label font-mono text-xs uppercase tracking-wider text-[var(--accent-strong)] mb-4">Focus</p>
-                  <div className="flex flex-wrap gap-2">
-                    {coreSkills.map((skill) => (
-                      <span key={skill} className="bg-[var(--surface-soft)] text-[var(--muted)] px-3 py-1 rounded-full text-xs font-medium border border-[var(--line)]">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="w-full h-[1px] bg-[var(--line)] my-6" />
-                <div>
-                  <p className="panel-label font-mono text-xs uppercase tracking-wider text-[var(--accent-strong)] mb-3">Currently</p>
-                  <p className="panel-text text-sm text-[var(--muted)] leading-relaxed">
-                    BS Computer Science student with hands-on work in AI/ML, backend systems,
-                    frontend interfaces, and software reliability.
-                  </p>
-                </div>
-              </>
-            }
+        {/* Lanyard card — visible on desktop only, sits above particle layer */}
+        <div className="hidden lg:block w-full h-full" style={{ minHeight: 520, position: 'relative', zIndex: 10 }}>
+          <LanyardCard
+            imageSrc="/your_picture.jpeg"
+            gravity={40}
+            cameraDistance={20}
+            startPosition="right"
+            clipColor="#667073"
+            cardColor="#1a1a1a"
+            stringColor="#444444"
+            lightingIntensity={55}
           />
         </div>
       </section>
